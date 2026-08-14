@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "gita_full.json",
+          "gitaWisdom.js",
+          "services/**",
+          "utils/**",
+          "articles/**",
+          "legal/**",
+          "*.html",
+          "*.css",
+          "*.js",
+          "logo.png",
+          "robots.txt",
+          "sitemap.xml",
+          "database.csv"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js"
+    }
+  ]
+}

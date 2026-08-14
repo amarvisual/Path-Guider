@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mobile Number Numerology Analysis — Path Guider</title>
+  <meta name="description" content="Get your free Mobile Number Numerology Analysis. Discover what your phone number reveals about your personality, career, relationships, finances & life path. Instant premium report."/>
+  <meta name="keywords" content="mobile number numerology, phone number numerology, mobile numerology reading, mobile number analysis, numerology free, path guider"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://pathguider.in/mobile-numerology"/>
+  <meta property="og:title" content="Mobile Number Numerology — Free Instant Analysis | Path Guider"/>
+  <meta property="og:description" content="Discover hidden energies in your mobile number. Free premium numerology report."/>
+  <meta property="og:image" content="https://pathguider.in/logo.png"/>
+  <meta property="og:url" content="https://pathguider.in/mobile-numerology"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #020205;
+      --navy2: #080812;
+      --purple: #1e1e38;
+      --purple-light: #2c2c54;
+      --gold: #f5b041;
+      --gold-light: #fad7a1;
+      --cyan: #48c9b0;
+      --pink: #af7ac5;
+      --glass: rgba(255,255,255,0.03);
+      --glass-border: rgba(245,176,65,0.15);
+      --text: #f8fafc;
+      --text-muted: #8888aa;
+      --radius: 20px;
+      --radius-sm: 10px;
+      --green: #2ecc71;
+      --red: #e74c3c;
+      --blue: #3498db;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* CANVAS */
+    #star-canvas {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(6,6,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { font-size: 1.6rem; }
+    .nav-logo-text { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--gold); font-weight: 700; }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold); }
+
+    /* MAIN WRAPPER */
+    main { position: relative; z-index: 1; padding-top: 80px; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(108,63,197,0.18) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,176,65,0.12); border: 1px solid rgba(245,176,65,0.3);
+      border-radius: 50px; padding: 6px 18px; font-size: 0.8rem;
+      color: var(--gold); margin-bottom: 1.5rem; letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #fff 0%, var(--gold) 50%, var(--pink) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem; line-height: 1.15;
+    }
+    .hero-sub {
+      color: var(--text-muted); font-size: 1.1rem;
+      max-width: 560px; margin: 0 auto 2rem; line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--gold); font-weight: 700; }
+    .hero-stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* FORM SECTION */
+    .form-section {
+      max-width: 680px; margin: 0 auto; padding: 0 1.5rem 3rem;
+    }
+    .form-card {
+      background: linear-gradient(135deg, rgba(30,30,56,0.9) 0%, rgba(8,8,18,0.95) 100%);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 60px rgba(108,63,197,0.15);
+    }
+    .form-title {
+      font-family: 'Cinzel', serif; font-size: 1.3rem;
+      color: var(--gold); margin-bottom: 0.4rem; text-align: center;
+    }
+    .form-subtitle { color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-bottom: 2rem; }
+
+    .form-group { margin-bottom: 1.4rem; }
+    .form-label {
+      display: block; font-size: 0.85rem; color: var(--text-muted);
+      margin-bottom: 8px; font-weight: 500; letter-spacing: 0.03em;
+    }
+    .form-label span { color: var(--red); }
+    .input-wrap { position: relative; }
+    .input-icon {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      font-size: 1.2rem; pointer-events: none;
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      padding: 14px 14px 14px 44px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(245,176,65,0.12);
+    }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input.error { border-color: var(--red); }
+    .error-msg { color: var(--red); font-size: 0.78rem; margin-top: 5px; display: none; }
+    .char-counter { text-align: right; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+    .analyze-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #6c3fc5 0%, #f5b041 100%);
+      border: none; border-radius: 14px; color: #fff;
+      font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700;
+      padding: 16px; cursor: pointer; letter-spacing: 0.05em;
+      transition: all 0.3s; position: relative; overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    .analyze-btn::before {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s;
+    }
+    .analyze-btn:hover::before { left: 100%; }
+    .analyze-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(108,63,197,0.4); }
+    .analyze-btn:active { transform: translateY(0); }
+    .analyze-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* LOADER */
+    .loader-overlay {
+      display: none; text-align: center; padding: 3rem 1.5rem;
+    }
+    .loader-overlay.active { display: block; }
+    .loader-ring {
+      width: 80px; height: 80px; margin: 0 auto 1.5rem;
+      border: 3px solid rgba(245,176,65,0.2);
+      border-top-color: var(--gold);
+      border-radius: 50%; animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loader-text { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .loader-steps { color: var(--text-muted); font-size: 0.85rem; }
+    .loader-progress { height: 3px; background: rgba(255,255,255,0.08); border-radius: 10px; margin: 1rem auto; max-width: 300px; overflow: hidden; }
+    .loader-progress-bar { height: 100%; background: linear-gradient(90deg, #6c3fc5, var(--gold)); border-radius: 10px; width: 0%; transition: width 0.4s ease; }
+
+    /* RESULT SECTION */
+    .result-section {
+      display: none; max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem;
+    }
+    .result-section.active { display: block; animation: fadeInUp 0.6s ease; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ACTION BUTTONS */
+    .action-bar {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .action-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 50px; border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.05); color: var(--text-muted);
+      font-size: 0.85rem; cursor: pointer; transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .action-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(245,176,65,0.08); }
+    .action-btn.primary { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 600; }
+    .action-btn.primary:hover { background: var(--gold-light); }
+
+    /* SCORE CARD */
+    .score-banner {
+      background: linear-gradient(135deg, rgba(108,63,197,0.3) 0%, rgba(245,176,65,0.15) 100%);
+      border: 1px solid rgba(245,176,65,0.3);
+      border-radius: 24px; padding: 2.5rem; text-align: center;
+      margin-bottom: 1.5rem; position: relative; overflow: hidden;
+    }
+    .score-banner::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(245,176,65,0.05) 0%, transparent 60%);
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+    @keyframes pulse-glow { 0%,100%{opacity:0.5} 50%{opacity:1} }
+    .score-number {
+      font-family: 'Cinzel', serif; font-size: 5rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--gold), var(--pink));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1;
+    }
+    .score-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .score-title { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--text); margin: 0.5rem 0; }
+    .score-subtitle { color: var(--text-muted); font-size: 0.95rem; }
+    .score-bar-wrap { max-width: 400px; margin: 1.5rem auto 0; }
+    .score-bar { height: 8px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
+    .score-bar-fill { height: 100%; background: linear-gradient(90deg, #6c3fc5, var(--gold)); border-radius: 10px; transition: width 1.5s ease; }
+    .score-bar-labels { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* NUMBER PROFILE */
+    .number-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .number-card {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+      border-radius: 16px; padding: 1.2rem; text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .number-card:hover { transform: translateY(-4px); border-color: rgba(245,176,65,0.4); }
+    .number-card-num {
+      font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 900;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .number-card-name { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .number-card-desc { font-size: 0.8rem; color: var(--text); line-height: 1.4; }
+
+    /* SECTION BLOCKS */
+    .result-block {
+      background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border);
+      border-radius: 20px; padding: 1.8rem; margin-bottom: 1.2rem;
+      transition: border-color 0.2s;
+    }
+    .result-block:hover { border-color: rgba(245,176,65,0.25); }
+    .block-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem;
+    }
+    .block-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .block-icon.gold { background: rgba(245,176,65,0.15); }
+    .block-icon.cyan { background: rgba(72,201,176,0.15); }
+    .block-icon.pink { background: rgba(175,122,197,0.15); }
+    .block-icon.blue { background: rgba(52,152,219,0.15); }
+    .block-icon.green { background: rgba(46,204,113,0.15); }
+    .block-icon.red { background: rgba(231,76,60,0.15); }
+    .block-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--text); }
+    .block-subtitle { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+    .block-body { font-size: 0.95rem; color: #ccd; line-height: 1.8; }
+
+    /* INFLUENCE METERS */
+    .influence-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem; margin-bottom: 1.2rem;
+    }
+    .influence-card {
+      background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border);
+      border-radius: 16px; padding: 1.2rem;
+    }
+    .influence-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .influence-name { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; }
+    .influence-score { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--gold); font-weight: 700; }
+    .influence-bar { height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; margin-bottom: 6px; }
+    .influence-fill { height: 100%; border-radius: 10px; transition: width 1.2s ease; }
+    .influence-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* LISTS */
+    .styled-list { list-style: none; }
+    .styled-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.92rem; color: #ccd; line-height: 1.6;
+    }
+    .styled-list li:last-child { border-bottom: none; }
+    .styled-list li::before {
+      content: attr(data-icon); font-size: 1rem; flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* DIGIT ENERGY MAP */
+    .digit-map {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem;
+    }
+    .digit-chip {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem;
+      border: 2px solid transparent; position: relative; cursor: default;
+      transition: transform 0.2s;
+    }
+    .digit-chip:hover { transform: scale(1.1); }
+    .digit-chip.dominant { background: rgba(245,176,65,0.2); border-color: var(--gold); color: var(--gold); }
+    .digit-chip.present { background: rgba(72,201,176,0.1); border-color: rgba(72,201,176,0.3); color: var(--cyan); }
+    .digit-chip.missing { background: rgba(231,76,60,0.08); border-color: rgba(231,76,60,0.25); color: rgba(231,76,60,0.5); opacity: 0.5; }
+    .digit-chip.mobile { background: rgba(108,63,197,0.2); border-color: rgba(175,122,197,0.5); color: var(--pink); }
+    .digit-map-legend { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+    /* TAGS */
+    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 0.8rem; }
+    .tag {
+      padding: 5px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .tag.gold { background: rgba(245,176,65,0.15); color: var(--gold); border: 1px solid rgba(245,176,65,0.3); }
+    .tag.cyan { background: rgba(72,201,176,0.1); color: var(--cyan); border: 1px solid rgba(72,201,176,0.25); }
+    .tag.pink { background: rgba(175,122,197,0.1); color: var(--pink); border: 1px solid rgba(175,122,197,0.25); }
+
+    /* CONCLUSION */
+    .conclusion-card {
+      background: linear-gradient(135deg, rgba(108,63,197,0.2) 0%, rgba(245,176,65,0.1) 100%);
+      border: 1px solid rgba(245,176,65,0.3);
+      border-radius: 20px; padding: 2rem; text-align: center; margin-bottom: 1.5rem;
+    }
+    .conclusion-card p { color: #dde; line-height: 1.9; font-size: 1rem; font-style: italic; }
+
+    /* HISTORY */
+    .history-section {
+      max-width: 900px; margin: 0 auto 3rem; padding: 0 1.5rem;
+      display: none;
+    }
+    .history-section.active { display: block; }
+    .history-title {
+      font-family: 'Cinzel', serif; font-size: 1rem; color: var(--text-muted);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;
+    }
+    .history-list { display: flex; gap: 10px; flex-wrap: wrap; }
+    .history-chip {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+      border-radius: 50px; padding: 6px 16px; font-size: 0.82rem;
+      color: var(--text-muted); cursor: pointer; transition: all 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .history-chip:hover { border-color: var(--gold); color: var(--gold); }
+    .history-chip .del-btn { color: rgba(231,76,60,0.5); font-size: 0.7rem; padding: 2px 4px; border-radius: 4px; }
+    .history-chip .del-btn:hover { color: var(--red); }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      max-width: 800px; margin: 0 auto 4rem; padding: 1.5rem;
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+    }
+    .disclaimer-title { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .disclaimer p { font-size: 0.78rem; color: rgba(136,136,170,0.7); line-height: 1.7; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 2rem; border-top: 1px solid var(--glass-border);
+      color: var(--text-muted); font-size: 0.82rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
+      background: rgba(30,30,56,0.95); border: 1px solid var(--glass-border);
+      border-radius: 50px; padding: 12px 24px; font-size: 0.9rem;
+      z-index: 9999; transition: transform 0.3s ease;
+      display: flex; align-items: center; gap: 10px; backdrop-filter: blur(20px);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .form-card { padding: 1.5rem; }
+      .score-number { font-size: 3.5rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .action-bar { gap: 8px; }
+      .action-btn { padding: 8px 14px; font-size: 0.8rem; }
+    }
+
+    /* PRINT */
+    @media print {
+      nav, .action-bar, .history-section, #star-canvas, .analyze-btn, .hero-stats { display: none !important; }
+      body { background: #fff; color: #000; }
+      .result-block, .score-banner, .influence-card, .number-card { border-color: #ccc !important; background: #fafafa !important; }
+      .score-number, .block-title, .number-card-num { color: #6c3fc5 !important; -webkit-text-fill-color: #6c3fc5 !important; }
+      .block-body, .influence-desc, .styled-list li, .conclusion-card p { color: #333 !important; }
+      main { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="star-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-icon">🔮</span>
+    <span class="nav-logo-text">Path Guider</span>
+  </a>
+  <a href="/" class="nav-back">← Back to Home</a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">📱 FREE PREMIUM ANALYSIS</div>
+    <h1>Mobile Number<br>Numerology Analysis</h1>
+    <p class="hero-sub">Your phone number carries a unique vibrational code. Discover hidden energies influencing your personality, relationships, career & financial life.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">2.1L+</div><div class="hero-stat-label">Analyses Done</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">9</div><div class="hero-stat-label">Influence Areas</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Free Forever</div></div>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <div class="history-section" id="history-section">
+    <div class="history-title">🕐 Recent Analyses</div>
+    <div class="history-list" id="history-list"></div>
+  </div>
+
+  <!-- FORM -->
+  <section class="form-section">
+    <div class="form-card">
+      <div class="form-title">Enter Your Details</div>
+      <div class="form-subtitle">We'll generate your complete numerology profile instantly</div>
+
+      <form id="analysis-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="mobile-input">Mobile Number <span>*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">📱</span>
+            <input type="tel" id="mobile-input" class="form-input"
+              placeholder="Enter 10-digit mobile number" maxlength="10"
+              autocomplete="off" inputmode="numeric"/>
+          </div>
+          <div class="char-counter"><span id="mobile-count">0</span>/10 digits</div>
+          <div class="error-msg" id="mobile-error">Please enter a valid 10-digit mobile number.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="name-input">Your Name <span style="color:var(--text-muted)">(optional)</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">✨</span>
+            <input type="text" id="name-input" class="form-input"
+              placeholder="Enter your name for personalized report"
+              autocomplete="off" maxlength="50"/>
+          </div>
+        </div>
+
+        <button type="submit" class="analyze-btn" id="analyze-btn">
+          🔮 Reveal My Numerology Profile
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- LOADER -->
+  <div class="loader-overlay" id="loader" style="padding: 2rem 1.5rem;">
+    <div class="loader-ring"></div>
+    <div class="loader-text">Decoding Your Number</div>
+    <div class="loader-steps" id="loader-step">Calculating root vibration...</div>
+    <div class="loader-progress" style="margin-top:1rem">
+      <div class="loader-progress-bar" id="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <section class="result-section" id="result-section">
+
+    <!-- ACTION BAR -->
+    <div class="action-bar">
+      <button class="action-btn primary" onclick="downloadPDF()">⬇ Download PDF</button>
+      <button class="action-btn" onclick="shareReport()">↗ Share</button>
+      <button class="action-btn" onclick="copyReport()">⎘ Copy</button>
+      <button class="action-btn" onclick="printReport()">🖨 Print</button>
+      <button class="action-btn" onclick="resetForm()">🔄 New Analysis</button>
+    </div>
+
+    <!-- SCORE BANNER -->
+    <div class="score-banner">
+      <div class="score-label">Overall Numerology Score</div>
+      <div class="score-number" id="res-score">-</div>
+      <div class="score-title" id="res-archetype">-</div>
+      <div class="score-subtitle" id="res-tagline">-</div>
+      <div class="score-bar-wrap">
+        <div class="score-bar">
+          <div class="score-bar-fill" id="res-score-bar" style="width:0%"></div>
+        </div>
+        <div class="score-bar-labels"><span>0</span><span>50</span><span>100</span></div>
+      </div>
+    </div>
+
+    <!-- NUMBER CARDS -->
+    <div class="number-grid">
+      <div class="number-card">
+        <div class="number-card-num" id="res-root">-</div>
+        <div class="number-card-name">Root Number</div>
+        <div class="number-card-desc" id="res-root-desc">-</div>
+      </div>
+      <div class="number-card">
+        <div class="number-card-num" id="res-destiny">-</div>
+        <div class="number-card-name">Destiny Number</div>
+        <div class="number-card-desc" id="res-destiny-desc">-</div>
+      </div>
+      <div class="number-card">
+        <div class="number-card-num" id="res-first">-</div>
+        <div class="number-card-name">First Half Energy</div>
+        <div class="number-card-desc" id="res-first-desc">-</div>
+      </div>
+      <div class="number-card">
+        <div class="number-card-num" id="res-second">-</div>
+        <div class="number-card-name">Second Half Energy</div>
+        <div class="number-card-desc" id="res-second-desc">-</div>
+      </div>
+    </div>
+
+    <!-- DIGIT ENERGY MAP -->
+    <div class="result-block">
+      <div class="block-header">
+        <div class="block-icon gold">🔢</div>
+        <div>
+          <div class="block-title">Digit Energy Map</div>
+          <div class="block-subtitle">Dominant, present & missing energies in your number</div>
+        </div>
+      </div>
+      <div class="digit-map" id="res-digit-map"></div>
+      <div class="digit-map-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div>Dominant</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--cyan)"></div>Present</div>
+        <div class="legend-item"><div class="legend-dot" style="background:rgba(231,76,60,0.4)"></div>Missing</div>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="result-block">
+      <div class="block-header">
+        <div class="block-icon gold">✨</div>
+        <div>
+          <div class="block-title">Summary</div>
+          <div class="block-subtitle">Your complete mobile number personality profile</div>
+        </div>
+      </div>
+      <div class="block-body" id="res-summary">-</div>
+      <div class="tag-row" id="res-tags"></div>
+    </div>
+
+    <!-- INFLUENCES -->
+    <div class="result-block">
+      <div class="block-header">
+        <div class="block-icon cyan">🌐</div>
+        <div>
+          <div class="block-title">Influence Analysis</div>
+          <div class="block-subtitle">How your number shapes different life areas</div>
+        </div>
+      </div>
+      <div class="influence-grid" id="res-influences"></div>
+    </div>
+
+    <!-- DETAILED ANALYSIS -->
+    <div class="result-block">
+      <div class="block-header">
+        <div class="block-icon pink">🔭</div>
+        <div>
+          <div class="block-title">Detailed Analysis</div>
+          <div class="block-subtitle">Deep dive into your number's vibrational patterns</div>
+        </div>
+      </div>
+      <div class="block-body" id="res-detailed">-</div>
+    </div>
+
+    <!-- STRENGTHS + CHALLENGES -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem">
+      <div class="result-block" style="margin-bottom:0">
+        <div class="block-header">
+          <div class="block-icon green">💪</div>
+          <div><div class="block-title">Strengths</div></div>
+        </div>
+        <ul class="styled-list" id="res-strengths"></ul>
+      </div>
+      <div class="result-block" style="margin-bottom:0">
+        <div class="block-header">
+          <div class="block-icon red">⚡</div>
+          <div><div class="block-title">Challenges</div></div>
+        </div>
+        <ul class="styled-list" id="res-challenges"></ul>
+      </div>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div class="result-block">
+      <div class="block-header">
+        <div class="block-icon blue">💡</div>
+        <div>
+          <div class="block-title">Personalized Recommendations</div>
+          <div class="block-subtitle">Practical guidance to align with your number's energy</div>
+        </div>
+      </div>
+      <ul class="styled-list" id="res-recommendations"></ul>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="conclusion-card">
+      <div style="font-size:2rem;margin-bottom:1rem">🌟</div>
+      <div style="font-family:'Cinzel',serif;color:var(--gold);margin-bottom:1rem;font-size:1.1rem">Final Conclusion</div>
+      <p id="res-conclusion">-</p>
+    </div>
+
+    <div class="action-bar">
+      <button class="action-btn primary" onclick="downloadPDF()">⬇ Download PDF</button>
+      <button class="action-btn" onclick="shareReport()">↗ Share Report</button>
+      <button class="action-btn" onclick="resetForm()">🔄 Analyse Another</button>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer" style="max-width:860px;margin:0 auto 4rem;padding:0 1.5rem">
+    <div class="result-block">
+      <div class="disclaimer-title">⚖ Legal Disclaimer</div>
+      <p>This Mobile Number Numerology Analysis is provided for entertainment, self-reflection, and educational purposes only. The results generated are based on traditional numerological interpretations and do not constitute financial, legal, medical, psychological, or any other form of professional advice. Path Guider and its developers make no representations or warranties regarding the accuracy, completeness, or fitness of this analysis for any particular purpose. Users should exercise their own judgment and consult qualified professionals for any important life decisions. By using this tool, you acknowledge and agree that Path Guider shall not be held liable for any actions taken based on the information provided herein.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <a href="/">Path Guider</a> · Mobile Number Numerology Analysis · Free Premium Tool</p>
+  <p style="margin-top:6px"><a href="/">← Back to Home</a> · <a href="/legal/privacy.html">Privacy Policy</a></p>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- jsPDF for PDF download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+// ── STAR CANVAS ─────────────────────────────────────────────────────────────
+(function(){
+  const c=document.getElementById('star-canvas');
+  const ctx=c.getContext('2d');
+  let stars=[];
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+  function init(){resize();stars=Array.from({length:120},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.2+0.3,a:Math.random(),s:Math.random()*0.005+0.002}));}
+  function draw(){ctx.clearRect(0,0,c.width,c.height);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<0)s.s*=-1;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,200,${s.a*0.6})`;ctx.fill();});requestAnimationFrame(draw);}
+  window.addEventListener('resize',init);init();draw();
+})();
+
+// ── NUMEROLOGY ENGINE ────────────────────────────────────────────────────────
+const DIGIT_MEANINGS = {
+  1: { name:'Leadership', energy:'Solar', trait:'Independent, ambitious, pioneering', color:'#f5b041' },
+  2: { name:'Harmony', energy:'Lunar', trait:'Diplomatic, sensitive, cooperative', color:'#48c9b0' },
+  3: { name:'Creativity', energy:'Jupiter', trait:'Expressive, social, artistic', color:'#af7ac5' },
+  4: { name:'Stability', energy:'Uranus', trait:'Disciplined, reliable, methodical', color:'#3498db' },
+  5: { name:'Freedom', energy:'Mercury', trait:'Adventurous, versatile, changeable', color:'#2ecc71' },
+  6: { name:'Nurturing', energy:'Venus', trait:'Caring, responsible, harmonious', color:'#e74c3c' },
+  7: { name:'Wisdom', energy:'Neptune', trait:'Analytical, spiritual, introspective', color:'#9b59b6' },
+  8: { name:'Power', energy:'Saturn', trait:'Ambitious, authoritative, material', color:'#f39c12' },
+  9: { name:'Compassion', energy:'Mars', trait:'Humanitarian, selfless, universal', color:'#1abc9c' }
+};
+
+const ARCHETYPES = {
+  1:{ name:'The Pioneer',     tagline:'You are born to lead and innovate.', score:82 },
+  2:{ name:'The Diplomat',    tagline:'Your strength lies in harmony and balance.', score:76 },
+  3:{ name:'The Creator',     tagline:'Your energy radiates creativity and joy.', score:85 },
+  4:{ name:'The Builder',     tagline:'You are the foundation others rely upon.', score:79 },
+  5:{ name:'The Explorer',    tagline:'Change and adventure fuel your spirit.', score:83 },
+  6:{ name:'The Nurturer',    tagline:'Love and responsibility define your path.', score:78 },
+  7:{ name:'The Seeker',      tagline:'Wisdom and truth are your guiding lights.', score:87 },
+  8:{ name:'The Achiever',    tagline:'Power, wealth, and mastery are your domain.', score:84 },
+  9:{ name:'The Visionary',   tagline:'You carry the universe\'s compassionate heart.', score:88 }
+};
+
+function digitSum(n) {
+  return String(n).split('').reduce((a,b)=>a+parseInt(b),0);
+}
+function reduceToSingle(n) {
+  while(n > 9) n = digitSum(n);
+  return n;
+}
+
+function analyzeNumber(mobile, name) {
+  const digits = mobile.split('').map(Number);
+  const total  = digits.reduce((a,b)=>a+b,0);
+  const root   = reduceToSingle(total);
+
+  const firstHalf  = digits.slice(0,5).reduce((a,b)=>a+b,0);
+  const secondHalf = digits.slice(5).reduce((a,b)=>a+b,0);
+  const firstRoot  = reduceToSingle(firstHalf);
+  const secondRoot = reduceToSingle(secondHalf);
+
+  // Frequency map
+  const freq = {};
+  digits.forEach(d => { if(d>0) freq[d]=(freq[d]||0)+1; });
+  const dominant = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,2).map(e=>parseInt(e[0]));
+  const present  = Object.keys(freq).map(Number);
+  const missing  = [1,2,3,4,5,6,7,8,9].filter(d=>!present.includes(d));
+
+  // Destiny = reduce total differently
+  const destiny = reduceToSingle(root + firstRoot + secondRoot);
+
+  const arch = ARCHETYPES[root] || ARCHETYPES[1];
+  const dm   = DIGIT_MEANINGS[root] || DIGIT_MEANINGS[1];
+
+  // Score with slight variation based on digits
+  const scoreBase = arch.score;
+  const scoreVariance = (digits[0] + digits[9]) % 10 - 5;
+  const score = Math.min(99, Math.max(65, scoreBase + scoreVariance));
+
+  const greeting = name ? `${name}, your` : 'Your';
+
+  // Influences
+  const influences = [
+    {
+      name:'Communication', icon:'💬', color:'#48c9b0',
+      score: calcInfluence(digits, [3,5,9]),
+      desc: getInfluenceDesc('communication', root, dominant)
+    },
+    {
+      name:'Career & Success', icon:'🏆', color:'#f5b041',
+      score: calcInfluence(digits, [1,4,8]),
+      desc: getInfluenceDesc('career', root, dominant)
+    },
+    {
+      name:'Relationships', icon:'💕', color:'#e74c3c',
+      score: calcInfluence(digits, [2,6,9]),
+      desc: getInfluenceDesc('relationships', root, dominant)
+    },
+    {
+      name:'Financial', icon:'💰', color:'#f39c12',
+      score: calcInfluence(digits, [4,8,6]),
+      desc: getInfluenceDesc('financial', root, dominant)
+    },
+    {
+      name:'Social Energy', icon:'🌟', color:'#af7ac5',
+      score: calcInfluence(digits, [3,5,2]),
+      desc: getInfluenceDesc('social', root, dominant)
+    },
+    {
+      name:'Personal Growth', icon:'🌱', color:'#2ecc71',
+      score: calcInfluence(digits, [7,9,1]),
+      desc: getInfluenceDesc('growth', root, dominant)
+    }
+  ];
+
+  return {
+    mobile, name, root, destiny, firstRoot, secondRoot,
+    dominant, present, missing, digits, score,
+    archetype: arch.name, tagline: arch.tagline,
+    dm, influences,
+    summary: buildSummary(greeting, root, dm, dominant, missing),
+    detailed: buildDetailed(greeting, root, firstRoot, secondRoot, dominant, missing, digits),
+    strengths: buildStrengths(root, dm, dominant),
+    challenges: buildChallenges(root, missing),
+    recommendations: buildRecs(root, missing, dominant),
+    conclusion: buildConclusion(greeting, root, arch),
+    tags: buildTags(root, dm, firstRoot, dominant)
+  };
+}
+
+function calcInfluence(digits, targetDigits) {
+  let score = 50;
+  digits.forEach(d => {
+    if(targetDigits.includes(d)) score += 5;
+  });
+  return Math.min(98, score);
+}
+
+function getInfluenceDesc(type, root, dominant) {
+  const d = dominant[0] || root;
+  const maps = {
+    communication: {
+      1:'Direct and assertive communicator. Others listen when you speak.',
+      2:'Empathetic listener with a calming, diplomatic communication style.',
+      3:'Natural storyteller. Words flow beautifully and charm everyone.',
+      4:'Clear, structured communicator — practical and to the point.',
+      5:'Witty and expressive. Conversations are vibrant with your energy.',
+      6:'Warm and nurturing communicator. People trust your words deeply.',
+      7:'Thoughtful and precise. You choose words carefully and wisely.',
+      8:'Commanding presence. Your words carry authority and confidence.',
+      9:'Inspiring and universal. You speak to people\'s hearts effortlessly.'
+    },
+    career: {
+      1:'Born for leadership roles. Entrepreneurship and management suit you.',
+      2:'Excels in partnerships, HR, counseling, and collaborative fields.',
+      3:'Thrives in creative, artistic, and entertainment industries.',
+      4:'Built for engineering, architecture, finance, and management.',
+      5:'Sales, marketing, travel, and dynamic roles energize you.',
+      6:'Education, healthcare, social work, and service industries call you.',
+      7:'Research, spirituality, science, and analytical roles are perfect.',
+      8:'Business, finance, law, and executive roles bring you success.',
+      9:'Healing, teaching, social causes, and leadership inspire you.'
+    },
+    relationships: {
+      1:'Values independence but deeply loyal once committed.',
+      2:'Natural partner. Relationships are harmonious and long-lasting.',
+      3:'Romantic, playful, and keeps relationships exciting always.',
+      4:'Dependable and stable. A trustworthy partner for life.',
+      5:'Freedom-loving but passionate when truly connected.',
+      6:'Devoted and nurturing. Family and love are your priorities.',
+      7:'Selective but deeply meaningful bonds when formed.',
+      8:'Powerful partnerships — often with equally ambitious people.',
+      9:'Unconditionally loving and deeply compassionate partner.'
+    },
+    financial: {
+      1:'Strong earning potential through leadership and innovation.',
+      2:'Steady income through collaboration and support roles.',
+      3:'Creative ventures bring financial rewards and opportunities.',
+      4:'Excellent saver and builder. Wealth grows steadily and surely.',
+      5:'Variable income but multiple income streams support well.',
+      6:'Financial stability through service and responsible management.',
+      7:'Unexpected windfalls and spiritual insights about money.',
+      8:'Strong wealth potential. Money is naturally attracted to you.',
+      9:'Generous spender but wealth comes back through karma and service.'
+    },
+    social: {
+      1:'Natural leader in social circles. People look up to you.',
+      2:'Beloved by all for your warmth and gentle understanding.',
+      3:'Life of the party. Your energy lights up every gathering.',
+      4:'Respected and relied upon. A pillar in your community.',
+      5:'Popular and fun. Your adventurous spirit attracts friends.',
+      6:'Beloved community figure. You bring people together warmly.',
+      7:'Selective but deeply valued in intellectual circles.',
+      8:'Influential and commanding. Your presence is respected widely.',
+      9:'Universal friend. People from all walks of life adore you.'
+    },
+    growth: {
+      1:'Growth comes through taking bold risks and leading others.',
+      2:'Growth blossoms through partnerships and inner harmony.',
+      3:'Creative expression and joy unlock your highest potential.',
+      4:'Disciplined practice and systems accelerate your evolution.',
+      5:'Embracing change and new experiences drives your growth.',
+      6:'Service to others and love is your fastest path to growth.',
+      7:'Meditation, study, and spiritual practice transform you.',
+      8:'Mastery of material and spiritual worlds is your journey.',
+      9:'Universal compassion and letting go brings deepest growth.'
+    }
+  };
+  return (maps[type] && maps[type][d]) || 'Balanced influence across all life areas.';
+}
+
+function buildSummary(greeting, root, dm, dominant, missing) {
+  const d1 = DIGIT_MEANINGS[dominant[0]] || dm;
+  const d2 = DIGIT_MEANINGS[dominant[1]];
+  return `${greeting} mobile number carries a powerful ${dm.energy} vibration rooted in the energy of ${dm.name}. At its core, this number resonates with the frequency of ${root} — a number associated with ${dm.trait.toLowerCase()}.\n\nYour number's dominant energies are ${d1.name}${d2 ? ' and ' + d2.name : ''}, creating a unique blend that shapes how the world perceives you and how opportunities flow into your life. The vibrational signature of your mobile number acts as an invisible antenna — constantly broadcasting your energy to everyone who calls, texts, or thinks of you through this number.\n\n${missing.length > 0 ? `Your number is missing the energies of ${missing.slice(0,3).map(m=>DIGIT_MEANINGS[m].name).join(', ')}, which suggests areas of life where focused intention can unlock hidden potential.` : 'Your number contains a remarkably complete set of energies, making it exceptionally balanced and powerful.'}`;
+}
+
+function buildDetailed(greeting, root, firstRoot, secondRoot, dominant, missing, digits) {
+  const dm = DIGIT_MEANINGS[root];
+  const fd = DIGIT_MEANINGS[firstRoot];
+  const sd = DIGIT_MEANINGS[secondRoot];
+  return `${greeting} number splits into two distinct energy fields. The first five digits carry the energy of ${firstRoot} (${fd.name}), representing your public-facing persona — how you appear in professional settings, your outward personality, and the impression you make on new people. The final five digits carry the energy of ${secondRoot} (${sd.name}), representing your private self — your emotions, intimate relationships, and inner world.\n\nThe interplay between these two halves creates a fascinating dynamic: outwardly you project ${fd.trait.toLowerCase()}, while privately you experience the world through ${sd.trait.toLowerCase()} qualities. This duality makes you particularly interesting and multi-dimensional.\n\nNumerologically, the repeating pattern of ${[...new Set(digits)].slice(0,3).join(', ')} in your number amplifies those specific vibrational frequencies significantly. Every time someone dials your number, these digits create an energetic resonance that subtly influences the outcome of that interaction. This is why certain types of people and opportunities are consistently attracted to you through your phone communications.`;
+}
+
+function buildStrengths(root, dm, dominant) {
+  const strengthMap = {
+    1:['Natural leadership and decision-making ability','Strong willpower and self-motivation','Pioneering mindset that creates opportunities'],
+    2:['Exceptional empathy and emotional intelligence','Outstanding ability to mediate and resolve conflicts','Creates harmony in all environments'],
+    3:['Magnetic charisma and creative self-expression','Infectious optimism that uplifts everyone','Artistic vision and imaginative problem-solving'],
+    4:['Rock-solid reliability and trustworthiness','Exceptional planning and organizational skills','Long-term vision with practical execution'],
+    5:['Remarkable adaptability in changing situations','Quick thinking and resourceful problem-solving','Natural ability to connect with diverse people'],
+    6:['Deep compassion and genuine care for others','Strong sense of responsibility and duty','Creates safe, nurturing environments for growth'],
+    7:['Profound analytical and research capabilities','Intuitive wisdom beyond conventional thinking','Deep spiritual insight and inner knowing'],
+    8:['Powerful manifestation of material success','Natural authority that commands respect','Strategic thinking that creates lasting wealth'],
+    9:['Universal empathy that transcends boundaries','Inspiring ability to uplift and heal others','Wisdom that comes from a broad, compassionate worldview']
+  };
+  return (strengthMap[root] || strengthMap[1]).map(s => ({ icon:'✅', text:s }));
+}
+
+function buildChallenges(root, missing) {
+  const challengeMap = {
+    1:['Tendency toward dominance or impatience with others','Difficulty accepting help or collaborating equally','Ego-driven decisions can overshadow good judgment'],
+    2:['Over-sensitivity to criticism and conflict','Tendency to self-sacrifice at personal expense','Difficulty making firm decisions independently'],
+    3:['Scattered energy with too many interests at once','Can be superficial or avoid deeper commitments','Tendency toward mood swings and emotional restlessness'],
+    4:['Rigidity and resistance to necessary change','Tendency toward workaholism and perfectionism','Can miss spontaneous opportunities due to over-planning'],
+    5:['Inconsistency and difficulty following through','Restlessness that creates instability in commitments','Impulsive decisions that require course corrections'],
+    6:['Taking on others\' burdens at personal cost','Difficulty setting healthy boundaries with loved ones','Perfectionism in relationships creates unnecessary stress'],
+    7:['Tendency toward isolation and overthinking','Can appear cold or detached in emotional situations','Prone to analysis paralysis in important decisions'],
+    8:['Risk of becoming overly focused on material gains','Power struggles in relationships and work environments','Can be perceived as domineering or inflexible'],
+    9:['Difficulty maintaining personal boundaries','Can lose sense of individual identity in service','Tendency to idealize and then feel disappointed']
+  };
+  const base = challengeMap[root] || challengeMap[1];
+  const missingChallenge = missing.length > 0
+    ? `Missing ${DIGIT_MEANINGS[missing[0]]?.name || 'certain'} energy may create gaps in ${missing[0] <= 3 ? 'expression and communication' : missing[0] <= 6 ? 'stability and relationships' : 'wisdom and completion'}`
+    : null;
+  const result = [...base];
+  if(missingChallenge) result.push(missingChallenge);
+  return result.map(c => ({ icon:'⚡', text:c }));
+}
+
+function buildRecs(root, missing, dominant) {
+  const recMap = {
+    1:['Meditate daily to balance leadership energy with inner peace','Practice active listening to strengthen collaborative relationships','Channel competitive energy into mentoring and uplifting others'],
+    2:['Set clear personal boundaries while maintaining your caring nature','Trust your intuition — it\'s extraordinarily reliable and accurate','Practice self-care with the same devotion you give to others'],
+    3:['Choose one creative project to fully commit to each season','Journaling helps channel scattered energy into focused creativity','Develop a morning routine to ground your vibrant, flowing energy'],
+    4:['Schedule spontaneous activities to balance your structured nature','Practice flexibility by trying one new approach each week','Delegate tasks to trust others and avoid burnout tendencies'],
+    5:['Develop a consistent daily routine as an anchor for your freedom','Complete existing commitments before beginning exciting new ones','Practice mindfulness to enjoy the present moment fully'],
+    6:['Schedule dedicated personal time as non-negotiable self-care','Learn to say no lovingly — boundaries protect your energy field','Trust others to manage their own challenges without your intervention'],
+    7:['Balance deep thinking with social connection and human warmth','Share your insights — the world deeply needs your unique wisdom','Spend time in nature to ground your powerful spiritual sensitivity'],
+    8:['Practice gratitude to maintain spiritual balance alongside material goals','Use your influence to uplift and empower others around you','Invest in relationships with the same energy as material pursuits'],
+    9:['Ground your universal compassion in specific, actionable service','Practice self-compassion as ardently as you serve others daily','Create clear life purpose statements to maintain personal direction']
+  };
+  const recs = [...(recMap[root] || recMap[1])];
+  if(missing.length > 0) {
+    recs.push(`Consciously develop ${DIGIT_MEANINGS[missing[0]]?.name} energy through ${missing[0] <= 3 ? 'creative expression and communication' : missing[0] <= 6 ? 'stability practices and nurturing relationships' : 'meditation and wisdom study'}`);
+  }
+  return recs.map(r => ({ icon:'💡', text:r }));
+}
+
+function buildConclusion(greeting, root, arch) {
+  const dm = DIGIT_MEANINGS[root];
+  return `"${greeting} mobile number is far more than a communication tool — it is a vibrational signature that speaks to the universe on your behalf. As ${arch.name}, you carry the energy of ${dm.name} in every call made, every message sent, every connection formed through this number. ${arch.tagline} The universe has placed this specific sequence of numbers in your life for a reason. Honour its energy, work consciously with its vibrations, and you will find that your phone number becomes a powerful ally in attracting the relationships, opportunities, and success that your soul is meant to experience. Trust the numbers. Trust the journey. Trust yourself."`;
+}
+
+function buildTags(root, dm, firstRoot, dominant) {
+  const dm2 = DIGIT_MEANINGS[firstRoot];
+  return [dm.name, dm.energy + ' Energy', ARCHETYPES[root].name, dm2.name + ' Presence'].map((t,i)=>({text:t, style:['gold','cyan','pink','gold'][i]}));
+}
+
+// ── RENDER ───────────────────────────────────────────────────────────────────
+function renderResult(data) {
+  // Score
+  document.getElementById('res-score').textContent = data.score;
+  document.getElementById('res-archetype').textContent = data.archetype;
+  document.getElementById('res-tagline').textContent = data.tagline;
+  setTimeout(()=>{ document.getElementById('res-score-bar').style.width = data.score + '%'; }, 300);
+
+  // Number cards
+  document.getElementById('res-root').textContent = data.root;
+  document.getElementById('res-root-desc').textContent = data.dm.trait;
+  document.getElementById('res-destiny').textContent = data.destiny;
+  document.getElementById('res-destiny-desc').textContent = DIGIT_MEANINGS[data.destiny]?.trait || 'Unique blended energy';
+  document.getElementById('res-first').textContent = data.firstRoot;
+  document.getElementById('res-first-desc').textContent = 'Public energy: ' + (DIGIT_MEANINGS[data.firstRoot]?.name || '-');
+  document.getElementById('res-second').textContent = data.secondRoot;
+  document.getElementById('res-second-desc').textContent = 'Private energy: ' + (DIGIT_MEANINGS[data.secondRoot]?.name || '-');
+
+  // Digit map
+  const mapEl = document.getElementById('res-digit-map');
+  mapEl.innerHTML = '';
+  // Show the actual mobile digits
+  data.digits.forEach(d => {
+    const chip = document.createElement('div');
+    chip.className = 'digit-chip mobile';
+    if(data.dominant.includes(d)) chip.className = 'digit-chip dominant';
+    else if(d > 0) chip.className = 'digit-chip present';
+    chip.textContent = d;
+    chip.title = d > 0 ? (DIGIT_MEANINGS[d]?.name + ': ' + DIGIT_MEANINGS[d]?.trait) : 'Zero — Amplifier';
+    mapEl.appendChild(chip);
+  });
+  // Missing energies
+  if(data.missing.length > 0) {
+    const sep = document.createElement('div');
+    sep.style.cssText = 'width:100%;font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem';
+    sep.textContent = 'Missing energies (1-9 not in your number):';
+    mapEl.appendChild(sep);
+    data.missing.forEach(d => {
+      const chip = document.createElement('div');
+      chip.className = 'digit-chip missing';
+      chip.textContent = d;
+      chip.title = 'Missing: ' + DIGIT_MEANINGS[d]?.name;
+      mapEl.appendChild(chip);
+    });
+  }
+
+  // Summary
+  document.getElementById('res-summary').innerHTML = data.summary.replace(/\n/g,'<br><br>');
+
+  // Tags
+  const tagsEl = document.getElementById('res-tags');
+  tagsEl.innerHTML = data.tags.map(t=>`<span class="tag ${t.style}">${t.text}</span>`).join('');
+
+  // Influences
+  const infEl = document.getElementById('res-influences');
+  infEl.innerHTML = data.influences.map(inf=>`
+    <div class="influence-card">
+      <div class="influence-top">
+        <div class="influence-name">${inf.icon} ${inf.name}</div>
+        <div class="influence-score">${inf.score}%</div>
+      </div>
+      <div class="influence-bar">
+        <div class="influence-fill" style="width:0%;background:${inf.color}" data-width="${inf.score}"></div>
+      </div>
+      <div class="influence-desc">${inf.desc}</div>
+    </div>
+  `).join('');
+  setTimeout(()=>{
+    document.querySelectorAll('.influence-fill').forEach(el=>{
+      el.style.width = el.dataset.width + '%';
+    });
+  }, 400);
+
+  // Detailed
+  document.getElementById('res-detailed').innerHTML = data.detailed.replace(/\n/g,'<br><br>');
+
+  // Strengths
+  document.getElementById('res-strengths').innerHTML = data.strengths.map(s=>`<li data-icon="${s.icon}">${s.text}</li>`).join('');
+
+  // Challenges
+  document.getElementById('res-challenges').innerHTML = data.challenges.map(c=>`<li data-icon="${c.icon}">${c.text}</li>`).join('');
+
+  // Recommendations
+  document.getElementById('res-recommendations').innerHTML = data.recommendations.map(r=>`<li data-icon="${r.icon}">${r.text}</li>`).join('');
+
+  // Conclusion
+  document.getElementById('res-conclusion').textContent = data.conclusion;
+}
+
+// ── FORM LOGIC ───────────────────────────────────────────────────────────────
+let currentData = null;
+const loaderSteps = [
+  'Calculating root vibration...',
+  'Mapping digit energy frequencies...',
+  'Analysing dominant energies...',
+  'Computing influence scores...',
+  'Generating personalized insights...',
+  'Preparing your premium report...'
+];
+
+document.getElementById('mobile-input').addEventListener('input', function(){
+  this.value = this.value.replace(/\D/g,'').slice(0,10);
+  document.getElementById('mobile-count').textContent = this.value.length;
+});
+
+document.getElementById('analysis-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const mobile = document.getElementById('mobile-input').value.trim();
+  const name   = document.getElementById('name-input').value.trim();
+  const errEl  = document.getElementById('mobile-error');
+  const input  = document.getElementById('mobile-input');
+
+  if(!/^\d{10}$/.test(mobile)){
+    input.classList.add('error');
+    errEl.style.display = 'block';
+    return;
+  }
+  input.classList.remove('error');
+  errEl.style.display = 'none';
+
+  // Hide form, show loader
+  document.querySelector('.form-section').style.display = 'none';
+  document.getElementById('result-section').classList.remove('active');
+  const loader = document.getElementById('loader');
+  loader.classList.add('active');
+
+  // Animate loader
+  let stepIdx = 0;
+  const bar = document.getElementById('loader-bar');
+  const stepEl = document.getElementById('loader-step');
+  const stepInterval = setInterval(()=>{
+    if(stepIdx < loaderSteps.length){
+      stepEl.textContent = loaderSteps[stepIdx];
+      bar.style.width = ((stepIdx+1)/loaderSteps.length * 100) + '%';
+      stepIdx++;
+    }
+  }, 280);
+
+  await new Promise(r=>setTimeout(r, 2000));
+  clearInterval(stepInterval);
+  bar.style.width = '100%';
+
+  // Analyse
+  currentData = analyzeNumber(mobile, name);
+
+  // Save to history
+  saveHistory(mobile, name);
+  renderHistory();
+
+  // Show result
+  loader.classList.remove('active');
+  document.getElementById('result-section').classList.add('active');
+  renderResult(currentData);
+  document.getElementById('result-section').scrollIntoView({ behavior:'smooth', block:'start' });
+});
+
+// ── HISTORY ──────────────────────────────────────────────────────────────────
+function saveHistory(mobile, name){
+  let h = JSON.parse(localStorage.getItem('mn_history') || '[]');
+  h = h.filter(i=>i.mobile !== mobile);
+  h.unshift({ mobile, name: name || '', ts: Date.now() });
+  h = h.slice(0,8);
+  localStorage.setItem('mn_history', JSON.stringify(h));
+}
+function renderHistory(){
+  const h = JSON.parse(localStorage.getItem('mn_history') || '[]');
+  const sec = document.getElementById('history-section');
+  const list = document.getElementById('history-list');
+  if(h.length === 0){ sec.classList.remove('active'); return; }
+  sec.classList.add('active');
+  list.innerHTML = h.map((item,i)=>`
+    <div class="history-chip" onclick="rerunHistory('${item.mobile}','${item.name}')">
+      📱 ${item.mobile}${item.name ? ' · '+item.name : ''}
+      <span class="del-btn" onclick="deleteHistory(event,${i})">✕</span>
+    </div>
+  `).join('');
+}
+function rerunHistory(mobile, name){
+  document.getElementById('mobile-input').value = mobile;
+  document.getElementById('name-input').value = name || '';
+  document.getElementById('mobile-count').textContent = mobile.length;
+  document.getElementById('analysis-form').dispatchEvent(new Event('submit'));
+}
+function deleteHistory(e, idx){
+  e.stopPropagation();
+  let h = JSON.parse(localStorage.getItem('mn_history') || '[]');
+  h.splice(idx,1);
+  localStorage.setItem('mn_history', JSON.stringify(h));
+  renderHistory();
+}
+
+// ── ACTIONS ──────────────────────────────────────────────────────────────────
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3000);
+}
+
+function resetForm(){
+  document.querySelector('.form-section').style.display = 'block';
+  document.getElementById('result-section').classList.remove('active');
+  document.getElementById('mobile-input').value = '';
+  document.getElementById('name-input').value = '';
+  document.getElementById('mobile-count').textContent = '0';
+  document.querySelector('.form-section').scrollIntoView({ behavior:'smooth' });
+}
+
+function copyReport(){
+  if(!currentData) return;
+  const text = [
+    '📱 MOBILE NUMBER NUMEROLOGY REPORT — PATH GUIDER',
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+    `Mobile: ${currentData.mobile}${currentData.name ? ' | Name: '+currentData.name : ''}`,
+    `Overall Score: ${currentData.score}/100`,
+    `Archetype: ${currentData.archetype}`,
+    `Root Number: ${currentData.root} (${currentData.dm.name})`,
+    '',
+    '📋 SUMMARY',
+    currentData.summary,
+    '',
+    '💪 STRENGTHS',
+    currentData.strengths.map(s=>'• '+s.text).join('\n'),
+    '',
+    '⚡ CHALLENGES',
+    currentData.challenges.map(c=>'• '+c.text).join('\n'),
+    '',
+    '💡 RECOMMENDATIONS',
+    currentData.recommendations.map(r=>'• '+r.text).join('\n'),
+    '',
+    '🌟 CONCLUSION',
+    currentData.conclusion,
+    '',
+    '🔮 Generated by Path Guider — pathguider.in/mobile-numerology'
+  ].join('\n');
+  navigator.clipboard.writeText(text).then(()=>showToast('✅ Report copied to clipboard!')).catch(()=>showToast('❌ Copy failed. Try again.'));
+}
+
+function shareReport(){
+  if(!currentData) return;
+  const text = `🔮 My Mobile Number Numerology Analysis\n\n📱 Number: ${currentData.mobile}\n✨ Archetype: ${currentData.archetype}\n⭐ Score: ${currentData.score}/100\n\n${currentData.tagline}\n\nGet your FREE analysis at pathguider.in/mobile-numerology`;
+  if(navigator.share){
+    navigator.share({ title:'My Numerology Report', text, url:'https://pathguider.in/mobile-numerology' });
+  } else {
+    navigator.clipboard.writeText(text).then(()=>showToast('✅ Share text copied!')).catch(()=>showToast('Share: '+text.slice(0,50)+'...'));
+  }
+}
+
+function printReport(){
+  window.print();
+}
+
+function downloadPDF(){
+  if(!currentData){ showToast('Please generate a report first.'); return; }
+  try {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation:'portrait', unit:'mm', format:'a4' });
+    const W = 210, margin = 20;
+    let y = margin;
+
+    // Header
+    doc.setFillColor(20,20,40);
+    doc.rect(0,0,W,45,'F');
+    doc.setTextColor(245,176,65);
+    doc.setFontSize(18); doc.setFont('helvetica','bold');
+    doc.text('MOBILE NUMBER NUMEROLOGY ANALYSIS', W/2, 18, {align:'center'});
+    doc.setFontSize(11); doc.setTextColor(200,200,220);
+    doc.text('Powered by Path Guider — pathguider.in', W/2, 28, {align:'center'});
+    doc.setFontSize(9); doc.setTextColor(136,136,170);
+    doc.text(`Generated: ${new Date().toLocaleString('en-IN')}`, W/2, 36, {align:'center'});
+    y = 55;
+
+    // Info row
+    doc.setTextColor(30,30,30); doc.setFontSize(11); doc.setFont('helvetica','normal');
+    doc.text(`Mobile: ${currentData.mobile}`, margin, y);
+    if(currentData.name) doc.text(`Name: ${currentData.name}`, margin+70, y);
+    doc.text(`Score: ${currentData.score}/100`, margin+140, y);
+    y += 8;
+    doc.setDrawColor(200,170,80);
+    doc.line(margin, y, W-margin, y);
+    y += 8;
+
+    // Archetype
+    doc.setTextColor(108,63,197); doc.setFontSize(14); doc.setFont('helvetica','bold');
+    doc.text(`Archetype: ${currentData.archetype}`, margin, y);
+    y += 7;
+    doc.setTextColor(100,100,120); doc.setFontSize(10); doc.setFont('helvetica','italic');
+    doc.text(currentData.tagline, margin, y);
+    y += 10;
+
+    // Numbers row
+    const nums = [
+      ['Root Number', currentData.root],
+      ['Destiny', currentData.destiny],
+      ['First Half', currentData.firstRoot],
+      ['Second Half', currentData.secondRoot]
+    ];
+    nums.forEach((n, i) => {
+      const x = margin + i * 43;
+      doc.setFillColor(240,235,255);
+      doc.roundedRect(x, y, 40, 16, 3, 3, 'F');
+      doc.setTextColor(108,63,197); doc.setFontSize(16); doc.setFont('helvetica','bold');
+      doc.text(String(n[1]), x+20, y+9, {align:'center'});
+      doc.setTextColor(100,100,120); doc.setFontSize(7); doc.setFont('helvetica','normal');
+      doc.text(n[0], x+20, y+14, {align:'center'});
+    });
+    y += 24;
+
+    const addSection = (title, content) => {
+      if(y > 265){ doc.addPage(); y = 20; }
+      doc.setFillColor(245,240,255);
+      doc.rect(margin, y, W-margin*2, 7, 'F');
+      doc.setTextColor(108,63,197); doc.setFontSize(11); doc.setFont('helvetica','bold');
+      doc.text(title, margin+3, y+5);
+      y += 10;
+      doc.setTextColor(50,50,70); doc.setFontSize(9); doc.setFont('helvetica','normal');
+      const lines = doc.splitTextToSize(content, W-margin*2);
+      lines.forEach(line => {
+        if(y > 275){ doc.addPage(); y = 20; }
+        doc.text(line, margin, y);
+        y += 5;
+      });
+      y += 4;
+    };
+
+    addSection('📋 SUMMARY', currentData.summary.replace(/\n/g,' '));
+    addSection('🔭 DETAILED ANALYSIS', currentData.detailed.replace(/\n/g,' '));
+    addSection('💪 STRENGTHS', currentData.strengths.map(s=>'• '+s.text).join('\n'));
+    addSection('⚡ CHALLENGES', currentData.challenges.map(c=>'• '+c.text).join('\n'));
+    addSection('💡 RECOMMENDATIONS', currentData.recommendations.map(r=>'• '+r.text).join('\n'));
+    addSection('🌟 CONCLUSION', currentData.conclusion);
+
+    // Disclaimer
+    if(y > 255){ doc.addPage(); y = 20; }
+    doc.setFontSize(7); doc.setTextColor(150,150,150); doc.setFont('helvetica','italic');
+    const disc = 'DISCLAIMER: This analysis is for entertainment and self-reflection only. Not professional advice.';
+    doc.text(disc, W/2, y+5, {align:'center'});
+
+    doc.save(`PathGuider_MobileNumerology_${currentData.mobile}.pdf`);
+    showToast('✅ PDF downloaded!');
+  } catch(err){
+    console.error(err);
+    showToast('❌ PDF generation failed. Please try printing instead.');
+  }
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+renderHistory();
+</script>
+
+</body>
+</html>

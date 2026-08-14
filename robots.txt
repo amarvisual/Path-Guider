@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Allow all important pages
+Allow: /index.html
+Allow: /handwriting.html
+Allow: /signature.html
+Allow: /articles/
+Allow: /services/
+Allow: /legal/
+
+# Block private/server files
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /server.js
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /database.csv
+Disallow: /*.js$
+
+# Sitemap location
+Sitemap: https://pathguider.in/sitemap.xml

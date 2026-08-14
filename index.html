@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ PRIMARY SEO ══════════════════════════════════════════════ -->
+  <title>Path Guider — Free Numerology Reading, Handwriting & Signature Analysis</title>
+  <meta name="description" content="Get your free numerology reading based on name, date of birth & mobile number. AI-powered handwriting & signature analysis. Gita Guidance chat. Trusted by 50,000+ users." />
+  <meta name="keywords" content="numerology reading, free numerology, life path number, handwriting analysis, signature analysis, Bhagavad Gita guidance, destiny number, soul urge number, numerology India, pathguider" />
+  <meta name="author" content="Path Guider" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pathguider.in/" />
+
+  <!-- ═══ GEO & LANGUAGE ══════════════════════════════════════════ -->
+  <meta name="geo.region" content="IN" />
+  <meta name="geo.placename" content="India" />
+  <meta name="language" content="English" />
+
+  <!-- ═══ OPEN GRAPH (WhatsApp, Facebook, LinkedIn) ═══════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pathguider.in/" />
+  <meta property="og:title" content="Path Guider — Free Numerology Reading & AI Life Analysis" />
+  <meta property="og:description" content="Discover your Life Path, Destiny & Soul Urge numbers for free. Upload your handwriting or signature for AI analysis. Ask the Bhagavad Gita anything." />
+  <meta property="og:image" content="https://pathguider.in/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Path Guider" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- ═══ TWITTER CARD ════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://pathguider.in/" />
+  <meta name="twitter:title" content="Path Guider — Free Numerology & AI Life Analysis" />
+  <meta name="twitter:description" content="Get your free numerology reading. AI handwriting & signature analysis. Bhagavad Gita wisdom chat." />
+  <meta name="twitter:image" content="https://pathguider.in/logo.png" />
+
+  <!-- ═══ SCHEMA.ORG STRUCTURED DATA ═════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Path Guider",
+    "url": "https://pathguider.in",
+    "description": "Free numerology reading, AI handwriting & signature analysis, and Bhagavad Gita guidance.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://pathguider.in/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Path Guider",
+    "url": "https://pathguider.in",
+    "logo": "https://pathguider.in/logo.png",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "availableLanguage": ["English", "Hindi"]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Numerology Reading",
+    "provider": { "@type": "Organization", "name": "Path Guider" },
+    "offers": [
+      { "@type": "Offer", "name": "Free Numerology Reading", "price": "0", "priceCurrency": "INR" },
+      { "@type": "Offer", "name": "Deep Numerology PDF", "price": "47", "priceCurrency": "INR" },
+      { "@type": "Offer", "name": "Signature Analysis", "price": "79", "priceCurrency": "INR" },
+      { "@type": "Offer", "name": "Advanced Package", "price": "97", "priceCurrency": "INR" },
+      { "@type": "Offer", "name": "Complete Mastery", "price": "121", "priceCurrency": "INR" }
+    ]
+  }
+  </script>
+
+  <!-- ═══ FAVICON & ASSETS ════════════════════════════════════════ -->
+  <link rel="icon" href="https://pathguider.in/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://pathguider.in/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .sd-reveal { opacity:0; transform:translateY(28px); transition:all .8s cubic-bezier(.22,1,.36,1); }
+    .sd-reveal.active { opacity:1; transform:translateY(0); }
+    @keyframes floatL { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-18px) rotate(2deg)} }
+    @keyframes floatR { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(18px) rotate(-2deg)} }
+    .float-l { animation:floatL 12s ease-in-out infinite; }
+    .float-r { animation:floatR 14s ease-in-out infinite; }
+    .noise-overlay { position:fixed;inset:0;z-index:99;pointer-events:none;opacity:.04;mix-blend-mode:overlay;background-image:url('https://grainy-gradients.vercel.app/noise.svg'); }
+    #sd-nav { transition:all .5s; }
+    #sd-nav.scrolled { background:rgba(5,5,5,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07);padding-top:.8rem;padding-bottom:.8rem; }
+    .playfair { font-family:'Playfair Display',serif; }
+    .parallax-up { transform:translateY(var(--pu,0px)); }
+    .parallax-down { transform:translateY(var(--pd,0px)); }
+  </style>
+</head>
+<body>
+
+  <!-- Star Canvas -->
+  <div class="sacred-ring"></div>
+  <canvas id="star-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">
+      <img src="logo.png" alt="Path Guider Logo" style="height: 40px; width: 40px; border-radius: 8px;">
+      <span>
+        <span class="nav-logo-text">Path Guider</span>
+        <span class="nav-logo-sub">Numerology & Life Analysis</span>
+      </span>
+    </a>
+    <ul id="nav-links">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#vedic-suite">Vedic Suite</a></li>
+      <li><a href="#form-section">Numerology</a></li>
+      <li><a href="blog/index.html" style="color:var(--gold-light); font-weight:600;">📖 Wisdom Hub</a></li>
+      <li><a href="signature.html" style="color:var(--gold);">✍️ Signature AI</a></li>
+      <li><a href="handwriting.html" style="color:#48c9b0;">📝 Handwriting</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})">✨ Get My Reading</button>
+    <button id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-badge">🌟 Numerology &amp; Life Path Analysis</div>
+    <h1 class="hero-title">Discover Your<br/>True Path</h1>
+    <p class="hero-sub">Unlock the hidden messages in your Name, Date of Birth, and Mobile Number — and receive a complete map of your personality, career, love life, and destiny.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})">✨ Reveal My Path</button>
+      <button class="btn-outline" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">How It Works</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">50,000+</div><div class="stat-label">Readings Done</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Life Path Types</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Private & Free</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Master Numbers</div></div>
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="container">
+      <h2 class="section-title reveal">How <span>It Works</span></h2>
+      <p class="section-sub reveal rd1">Three simple steps to unlock the blueprint of your life</p>
+      <div class="steps">
+        <div class="step-card reveal rd1">
+          <div class="step-num">1</div>
+          <h3>Enter Your Details</h3>
+          <p>Provide your full name, date of birth, and mobile number. All data stays in your browser — completely private.</p>
+        </div>
+        <div class="step-card reveal rd2">
+          <div class="step-num">2</div>
+          <h3>We Analyze the Numbers</h3>
+          <p>Our numerology engine calculates your Life Path, Destiny, Soul Urge, Personality, and Mobile Vibration numbers.</p>
+        </div>
+        <div class="step-card reveal rd3">
+          <div class="step-num">3</div>
+          <h3>Receive Your Reading</h3>
+          <p>Get a beautifully detailed report covering your personality, career, love life, mindset, lucky numbers, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title reveal">What We <span>Reveal</span></h2>
+      <p class="section-sub reveal rd1">A complete numerological analysis covering every dimension of your life</p>
+      <div class="services-grid">
+        <div class="service-card" style="--card-glow: rgba(212,175,55,.15)">
+          <div class="service-icon">📅</div>
+          <h3>Date of Birth Analysis</h3>
+          <p>Your birth date holds the secret of your Life Path — your core purpose, strengths, and destiny in this lifetime.</p>
+        </div>
+        <div class="service-card" style="--card-glow: rgba(108,63,197,.2)">
+          <div class="service-icon">🔤</div>
+          <h3>Name Analysis</h3>
+          <p>Every letter carries a vibration. Your name reveals your Destiny Number, Soul Urge, and the personality you project to the world.</p>
+        </div>
+        <div class="service-card" style="--card-glow: rgba(0,212,255,.15)">
+          <div class="service-icon">📱</div>
+          <h3>Mobile Number Analysis</h3>
+          <p>The number you carry with you daily emits a constant frequency. Discover the energy your mobile number brings into your life.</p>
+        </div>
+        <div class="service-card" style="--card-glow: rgba(255,110,180,.15)">
+          <div class="service-icon">💼</div>
+          <h3>Career & Skills Mapping</h3>
+          <p>Find out which professions align with your natural gifts and numerological blueprint for maximum success and fulfillment.</p>
+        </div>
+        <div class="service-card" style="--card-glow: rgba(255,99,71,.15)">
+          <div class="service-icon">❤️</div>
+          <h3>Love & Relationships</h3>
+          <p>Understand your romantic nature, what you seek in a partner, and how to build deeper, more meaningful connections.</p>
+        </div>
+        <div class="service-card" style="--card-glow: rgba(50,205,50,.15)">
+          <div class="service-icon">🍀</div>
+          <h3>Lucky Profile</h3>
+          <p>Discover your lucky numbers, colors, days of the week, and gemstones aligned with your personal numerological energy.</p>
+        </div>
+        <div class="service-card" style="--card-glow: rgba(255,165,0,.15)">
+          <div class="service-icon">👁️</div>
+          <h3>Face Reading (Physiognomy)</h3>
+          <p>Uncover hidden personality traits, emotional tendencies, and future potentials encoded in your facial features.</p>
+        </div>
+        <div class="service-card" style="--card-glow: rgba(138,43,226,.15)">
+          <div class="service-icon">🌌</div>
+          <h3>Astrology</h3>
+          <p>Decode the planetary alignments at your exact time of birth to understand your deeper karmic journey and life cycles.</p>
+        </div>
+        
+        <!-- FREE HANDWRITING ANALYSIS -->
+        <div class="service-card" style="--card-glow: rgba(72,201,176,.2); cursor:pointer;" onclick="window.location.href='handwriting.html'">
+          <div class="service-icon">📝</div>
+          <h3>Free Handwriting Analysis</h3>
+          <p>Upload a photo of your handwriting. Our Gemini AI will reveal your core personality, mindset, and hidden traits.</p>
+          <div style="margin-top:1rem;">
+            <span style="background:linear-gradient(135deg,rgba(72,201,176,.15),rgba(72,201,176,.05));border:1px solid rgba(72,201,176,.4);color:#48c9b0;padding:.4rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;">✨ 100% Free AI Service</span>
+          </div>
+        </div>
+
+        <!-- FREE MOBILE NUMEROLOGY -->
+        <div class="service-card" style="--card-glow: rgba(175,122,197,.25); cursor:pointer;" onclick="window.location.href='mobile-numerology.html'">
+          <div class="service-icon">📱</div>
+          <h3>Mobile Number Numerology</h3>
+          <p>Your phone number carries a unique vibrational code. Get a complete analysis of career, relationship, financial & social energies hidden in your number.</p>
+          <div style="margin-top:1rem;">
+            <span style="background:linear-gradient(135deg,rgba(175,122,197,.15),rgba(175,122,197,.05));border:1px solid rgba(175,122,197,.4);color:#af7ac5;padding:.4rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;">🔮 Free Premium Report</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- INTERACTIVE VEDIC ASTROLOGY & WELLNESS SUITE -->
+  <section id="vedic-suite">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <span class="vedic-badge badge-gold">✨ Instant Vedic Astrology Suite</span>
+        <h2 class="section-title reveal">Cosmic <span>Calculators</span></h2>
+        <p class="section-sub reveal rd1">Explore real-time Vedic astrology tools, auspicious timings, and chakra balance diagnostics</p>
+      </div>
+
+      <div class="vedic-suite-container">
+        <!-- Tabs Navigation -->
+        <div class="vedic-tabs">
+          <button class="vedic-tab-btn active" onclick="switchVedicTab('horoscope', this)">🔮 Daily Horoscope</button>
+          <button class="vedic-tab-btn" onclick="switchVedicTab('muhurat', this)">⏳ Auspicious Muhurat</button>
+          <button class="vedic-tab-btn" onclick="switchVedicTab('chakra', this)">🧘 Blocked Chakra Quiz</button>
+          <button class="vedic-tab-btn" onclick="switchVedicTab('rashi', this)">🕉️ Rashi & Gemstone</button>
+        </div>
+
+        <!-- Tab 1: Daily Horoscope -->
+        <div id="tab-horoscope" class="vedic-panel active">
+          <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:0.5rem;">Daily Celestial Horoscope</h3>
+          <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.5rem;">Select your Moon/Sun sign to receive today's cosmic planetary guidance and lucky attributes.</p>
+          <div class="vedic-grid-2">
+            <div>
+              <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">Choose Zodiac Sign</label>
+              <select id="horoscope-sign" class="vedic-select">
+                <option value="aries">♈ Aries (Mesh)</option>
+                <option value="taurus">♉ Taurus (Vrishabh)</option>
+                <option value="gemini">♊ Gemini (Mithun)</option>
+                <option value="cancer">♋ Cancer (Kark)</option>
+                <option value="leo" selected>♌ Leo (Singh)</option>
+                <option value="virgo">♍ Virgo (Kanya)</option>
+                <option value="libra">♎ Libra (Tula)</option>
+                <option value="scorpio">♏ Scorpio (Vrishchik)</option>
+                <option value="sagittarius">♐ Sagittarius (Dhanu)</option>
+                <option value="capricorn">♑ Capricorn (Makar)</option>
+                <option value="aquarius">♒ Aquarius (Kumbh)</option>
+                <option value="pisces">♓ Pisces (Meen)</option>
+              </select>
+            </div>
+            <div style="display:flex; align-items:flex-end;">
+              <button class="vedic-calc-btn" onclick="fetchHoroscope()" style="width:100%;">
+                <span>Reveal Today's Horoscope 🔮</span>
+              </button>
+            </div>
+          </div>
+          <div id="horoscope-result" class="vedic-result-box"></div>
+        </div>
+
+        <!-- Tab 2: Auspicious Muhurat -->
+        <div id="tab-muhurat" class="vedic-panel">
+          <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:0.5rem;">Vedic Muhurat & Shubh Time Finder</h3>
+          <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.5rem;">Check if the stars and planetary hours align favorably with your planned activity.</p>
+          <div class="vedic-grid-2">
+            <div>
+              <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">Select Activity Type</label>
+              <select id="muhurat-activity" class="vedic-select">
+                <option value="business" selected>💼 New Business / Career Launch</option>
+                <option value="marriage">💍 Marriage / Engagement</option>
+                <option value="travel">✈️ Travel / Relocation</option>
+                <option value="property">🏡 Property & Real Estate Purchase</option>
+                <option value="vehicle">🚗 Purchasing New Vehicle</option>
+                <option value="medical">🩺 Medical Surgery / Treatment</option>
+                <option value="puja">🪔 Sacred Puja & Havan</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">Target Date</label>
+              <input type="date" id="muhurat-date" class="vedic-input" />
+            </div>
+          </div>
+          <div style="margin-top:1.2rem; text-align:right;">
+            <button class="vedic-calc-btn" onclick="fetchMuhurat()">
+              <span>Check Muhurat Verdict ⏳</span>
+            </button>
+          </div>
+          <div id="muhurat-result" class="vedic-result-box"></div>
+        </div>
+
+        <!-- Tab 3: Blocked Chakra Diagnostic -->
+        <div id="tab-chakra" class="vedic-panel">
+          <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:0.5rem;">Blocked Chakra Diagnostic Quiz</h3>
+          <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.5rem;">Identify which energy center in your body is depleted or blocked and get instant healing remedies.</p>
+          <div>
+            <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">Select What You Feel Most Strongly</label>
+            <select id="chakra-symptoms" class="vedic-select">
+              <option value="fear and financial anxiety" selected>😟 Fear, Financial Anxiety & Feeling Ungrounded (Root)</option>
+              <option value="lack of creativity and emotional guilt">🎨 Lack of Creativity, Guilt & Relationship Friction (Sacral)</option>
+              <option value="low confidence and digestion issues">⚡ Low Self-Esteem, Procrastination & Anger (Solar Plexus)</option>
+              <option value="broken heart and inability to forgive">💚 Grief, Loneliness & Difficulty Trusting Others (Heart)</option>
+              <option value="fear of speaking and throat blockage">🗣️ Fear of Public Speaking & Throat Blockages (Throat)</option>
+              <option value="lack of intuition and racing thoughts">👁️ Overthinking, Lack of Intuition & Confusion (Third Eye)</option>
+              <option value="feeling disconnected from purpose">🌌 Feeling Lost, Empty & Disconnected from Life (Crown)</option>
+            </select>
+          </div>
+          <div style="margin-top:1.2rem; text-align:right;">
+            <button class="vedic-calc-btn" onclick="fetchChakraDiagnostic()">
+              <span>Analyze Chakra & Remedies 🧘</span>
+            </button>
+          </div>
+          <div id="chakra-result" class="vedic-result-box"></div>
+        </div>
+
+        <!-- Tab 4: Vedic Rashi & Gemstone -->
+        <div id="tab-rashi" class="vedic-panel">
+          <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:0.5rem;">Vedic Rashi & Gemstone Matrix</h3>
+          <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.5rem;">Calculate your Vedic sign, ruling deity, Nakshatra, and recommended gemstone based on Date of Birth.</p>
+          <div class="vedic-grid-2">
+            <div>
+              <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">Your Date of Birth</label>
+              <input type="date" id="rashi-dob" class="vedic-input" />
+            </div>
+            <div style="display:flex; align-items:flex-end;">
+              <button class="vedic-calc-btn" onclick="fetchRashiAndGemstone()" style="width:100%;">
+                <span>Calculate Rashi & Gemstone 🕉️</span>
+              </button>
+            </div>
+          </div>
+          <div id="rashi-result" class="vedic-result-box"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GITA GUIDANCE CHAT -->
+  <section id="gita-section" style="padding:5rem 0;">
+    <div class="container">
+      <h2 class="section-title reveal">🕉️ Gita <span>Guidance</span></h2>
+      <p class="section-sub reveal" style="margin-bottom:2.5rem;">Ask the Bhagavad Gita any question about your life — receive ancient wisdom, instantly</p>
+
+      <div class="gita-chat-wrapper">
+        <!-- Chat Box -->
+        <div id="gita-chat-box" class="gita-chat-box">
+          <div class="gita-welcome-msg">
+            <div class="gita-avatar">📿</div>
+            <div class="gita-bubble gita-bubble-bot">
+              <strong style="color:var(--gold);">Namaste 🙏</strong><br>
+              I am the voice of the Bhagavad Gita. Share your name and the challenge you face, and I will guide you with Lord Krishna's timeless wisdom.
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="gita-input-area">
+          <!-- Name row -->
+          <div class="gita-input-row">
+            <input id="gita-name" type="text" placeholder="Your name (e.g. Arjun)" maxlength="60" />
+            <p class="gita-name-hint">So Lord Krishna can address you personally 🙏</p>
+          </div>
+          <!-- Message row -->
+          <div class="gita-msg-row">
+            <textarea id="gita-problem" rows="3" maxlength="500" placeholder="Describe your situation or question... (e.g. I feel lost and don't know my purpose. What should I do?)"></textarea>
+            <p style="font-size:0.75rem;color:var(--text-muted);text-align:right;margin-top:0.3rem;"><span id="gita-char-count">0</span> / 500</p>
+          </div>
+          <!-- Send button -->
+          <button id="gita-send-btn" onclick="sendGitaMessage()">🕉️ Seek Divine Guidance</button>
+          <p style="color:var(--text-muted);font-size:.75rem;text-align:center;">Wisdom sourced from all 18 chapters of the Bhagavad Gita</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- FORM SECTION -->
+  <section id="form-section">
+    <div class="container">
+      <h2 class="section-title reveal">Begin Your <span>Reading</span></h2>
+      <p class="section-sub">Enter your details below and receive your complete numerological blueprint instantly</p>
+      <div class="form-wrapper reveal-blur">
+        <form id="analysis-form" novalidate>
+          <div class="form-group">
+            <label for="user-name">✨ Full Name (as given at birth)</label>
+            <input type="text" id="user-name" name="name" placeholder="e.g. Amar Kumar Sharma" autocomplete="name" required />
+          </div>
+          <div class="form-group form-row">
+            <div class="half-width">
+              <label for="user-dob">📅 Date of Birth</label>
+              <input type="date" id="user-dob" name="dob" required />
+            </div>
+            <div class="half-width">
+              <label for="user-gender">🚻 Gender</label>
+              <select id="user-gender" name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user-cob">🏙️ City of Birth</label>
+            <input type="text" id="user-cob" name="cob" placeholder="e.g. New Delhi" required />
+          </div>
+          <div class="form-group">
+            <label for="user-mobile">📱 Mobile Number</label>
+            <input type="tel" id="user-mobile" name="mobile" placeholder="e.g. 9876543210" autocomplete="tel" required />
+          </div>
+          <div class="form-group upload-group">
+            <label for="numerology-upload">📁 Upload Data File</label>
+            <input type="file" id="numerology-upload" accept=".json,.csv" />
+            <div class="upload-guide">Provide a file containing your details for batch analysis (optional).</div>
+          </div>
+          <button type="submit" id="analyze-btn">
+            <span class="btn-text">Reveal My Path ✨</span>
+            <span class="btn-spinner"></span>
+          </button>
+          <p class="form-note">🔒 Your data never leaves your device. 100% private.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results-section">
+    <div class="container">
+      <div id="results-container"></div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="trust">
+    <div class="container">
+      <h2 class="section-title reveal">Why <span>Trust</span> Path Guider</h2>
+      <p class="section-sub">Built on ancient wisdom, powered by precision</p>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">📜</div>
+          <h3>Ancient Science</h3>
+          <p>Our engine is based on the Pythagorean numerology system — a 2,500-year-old tradition of number wisdom.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🔒</div>
+          <h3>100% Private</h3>
+          <p>All calculations happen in your browser. We never store, collect, or share your personal information.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">⚡</div>
+          <h3>Instant Results</h3>
+          <p>No waiting. Your complete numerological reading is generated in seconds, right on your screen.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🎯</div>
+          <h3>Deep & Accurate</h3>
+          <p>We analyze 7+ numerological factors for a truly comprehensive and deeply personal reading.</p>
+        </div>
+      </div>
+
+      <h3 class="section-title" style="font-size:1.5rem; margin-bottom:1.5rem;">What People <span>Say</span></h3>
+      <div class="testimonials">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"I was skeptical at first, but the career section described my life so accurately it gave me chills. The Life Path reading was spot on!"</p>
+          <div class="testi-author">Priya Sharma</div>
+          <div class="testi-role">Software Engineer, Bangalore</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The love life section explained exactly why my relationships work the way they do. This is incredibly insightful and beautifully presented."</p>
+          <div class="testi-author">Rahul Verma</div>
+          <div class="testi-role">Entrepreneur, Mumbai</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"I checked my mobile number vibration and it matched the energy I feel every day. Path Guider is now my go-to for life decisions!"</p>
+          <div class="testi-author">Ananya Nair</div>
+          <div class="testi-role">Teacher, Chennai</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="text-align:center;">
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;margin:1.5rem 0 0.5rem;">
+        <a href="blog/index.html" style="color:var(--gold-light);text-decoration:none;font-size:.85rem;font-weight:600;transition:color .2s;">📖 Wisdom Hub</a>
+        <a href="legal/privacy-policy.html" style="color:#8888aa;text-decoration:none;font-size:.85rem;transition:color .2s;">Privacy Policy</a>
+        <a href="legal/terms-conditions.html" style="color:#8888aa;text-decoration:none;font-size:.85rem;transition:color .2s;">Terms &amp; Conditions</a>
+        <a href="legal/refund-policy.html" style="color:#8888aa;text-decoration:none;font-size:.85rem;transition:color .2s;">Refund Policy</a>
+        <a href="legal/contact.html" style="color:#8888aa;text-decoration:none;font-size:.85rem;transition:color .2s;">Contact Us</a>
+      </div>
+      <p style="margin-top:1.5rem; color:var(--text-muted); font-size:0.85rem;">© 2026 Path Guider · Powered by Vedic Wisdom &amp; AI Intelligence</p>
+    </div>
+  </footer>
+
+  <!-- Payment Modal for Email & Photo -->
+  <div id="payment-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-payment-modal">&times;</span>
+      <h2 style="color:var(--gold-light);font-family:'Cinzel',serif;">Almost There! ✨</h2>
+      <p style="color:var(--text-muted);margin-bottom:1.5rem;">Your personalised PDF report will be emailed to you within minutes of payment.</p>
+      
+      <form id="payment-details-form">
+        <div class="form-group">
+          <label for="modal-email">✉️ Email Address</label>
+          <input type="email" id="modal-email" required placeholder="e.g. name@example.com" />
+        </div>
+        
+        <div class="form-group">
+          <label for="modal-promo">🎁 Promo Code <span style="color:var(--text-muted);font-size:.8rem;">(Optional)</span></label>
+          <div style="display:flex;gap:.6rem;">
+            <input type="text" id="modal-promo" placeholder="Enter promo code" style="text-transform:uppercase;flex:1;" />
+            <button type="button" id="apply-promo-btn" style="padding:.6rem 1.2rem;border-radius:8px;background:linear-gradient(135deg,var(--purple),var(--purple-light));border:none;color:#fff;font-weight:600;cursor:pointer;white-space:nowrap;">Apply</button>
+          </div>
+          <p id="promo-msg" style="font-size:.8rem;margin-top:.4rem;min-height:1.2em;"></p>
+        </div>
+        
+        <div class="form-group upload-group">
+          <label for="modal-photo">📸 Face Photo <span style="color:var(--text-muted);font-size:.8rem;">(Optional — only for Advanced/Mastery packages)</span></label>
+          <input type="file" id="modal-photo" accept="image/png, image/jpeg" />
+          <div class="upload-guide">
+            <strong>Guidelines for accurate Face Reading:</strong><br>
+            • Ensure well-lit, front-facing profile<br>
+            • No glasses, filters, or heavy makeup
+          </div>
+        </div>
+        
+        <button type="submit" id="proceed-payment-btn" class="btn-primary">
+          Proceed to Secure Checkout 🔒
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="readings.js"></script>
+  <script src="numerology.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

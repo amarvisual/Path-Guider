@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment Variables & Secrets
+.env
+.env.*
+.env.local
+.env.vercel
+.env.vercel.production
+
+# Vercel & Deployment
+.vercel/
+
+# User Data & Logs
+database.csv
+*.log
+npm-debug.log*
+
+# OS & Temp Files
+.DS_Store
+Thumbs.db

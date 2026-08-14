@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Handwriting Analysis | Path Guider</title>
+  <meta name="description" content="Upload a photo of your handwriting and get a free AI personality analysis — discover your mindset, emotions, strengths and hidden traits instantly." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .hw-page { min-height: 100vh; padding: 6rem 1.5rem 4rem; position: relative; z-index: 1; }
+    .hw-box { max-width: 700px; margin: 0 auto; background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 3rem 2.5rem; box-shadow: 0 32px 80px rgba(0,0,0,.6); }
+    .free-badge { display: inline-block; background: linear-gradient(135deg, rgba(72,201,176,.2), rgba(72,201,176,.05)); border: 1px solid rgba(72,201,176,.4); color: #48c9b0; padding: .35rem 1.1rem; border-radius: 50px; font-size: .8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem; }
+    .upload-zone { border: 2px dashed rgba(72,201,176,.4); border-radius: 16px; padding: 2.5rem 1.5rem; text-align: center; cursor: pointer; transition: all .3s; background: rgba(72,201,176,.02); }
+    .upload-zone:hover { border-color: rgba(72,201,176,.8); background: rgba(72,201,176,.05); }
+    .result-section { margin-top: 2rem; }
+    .result-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 1.5rem; margin-bottom: 1rem; transition: border-color .3s; }
+    .result-card:hover { border-color: rgba(245,176,65,.25); }
+    .result-card .rc-icon { font-size: 1.8rem; margin-bottom: .5rem; }
+    .result-card h4 { color: var(--gold-light); margin-bottom: .7rem; font-size: .9rem; letter-spacing: 1px; text-transform: uppercase; }
+    .result-card p { color: var(--text); font-size: .93rem; line-height: 1.8; }
+    .strength-list { list-style: none; padding: 0; }
+    .strength-list li { color: var(--text); font-size: .93rem; line-height: 1.8; padding-left: 1.2rem; position: relative; }
+    .strength-list li::before { content: '✦'; color: var(--gold); position: absolute; left: 0; font-size: .7rem; top: .3rem; }
+    .advice-box { background: linear-gradient(135deg, rgba(108,63,197,.12), rgba(108,63,197,.03)); border: 1px solid rgba(108,63,197,.3); border-radius: 14px; padding: 1.5rem; margin-top: 1rem; }
+    .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: .5rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .analyze-btn { width: 100%; padding: 1.1rem 2rem; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: .6rem; margin-top: 1.5rem; }
+    .upgrade-banner { margin-top: 3rem; padding: 1.5rem 2rem; background: linear-gradient(135deg, rgba(245,176,65,.08), rgba(245,176,65,.02)); border: 1px solid rgba(245,176,65,.25); border-radius: 16px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <div class="sacred-ring"></div>
+  <canvas id="star-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav id="sd-nav">
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-icon">🔮</span>
+      <span class="nav-logo-text">Path Guider<span class="nav-logo-sub">By Amar Visual Studio</span></span>
+    </a>
+    <a href="index.html" style="color:var(--text-muted);text-decoration:none;font-size:.9rem;">← Back to Home</a>
+  </nav>
+
+  <section class="hw-page">
+    <div class="hw-box">
+
+      <!-- Header -->
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <div class="free-badge">✨ 100% Free · Gemini AI · No Login</div>
+        <h1 style="font-family:'Cinzel',serif; font-size:clamp(1.8rem,4vw,2.5rem); color:var(--gold-light); margin-bottom:.8rem;">Free Handwriting<br>Analysis</h1>
+        <p style="color:var(--text-muted); max-width:500px; margin:0 auto; line-height:1.7;">Write a few lines on plain paper, take a photo, and upload it. Our AI graphologist will reveal your personality, mindset, emotions and hidden traits — completely free.</p>
+      </div>
+
+      <!-- Form -->
+      <form id="hw-form">
+        <div class="form-group">
+          <label>👤 Your Name</label>
+          <input type="text" id="hw-name" required placeholder="Enter your name" />
+        </div>
+
+        <!-- Upload Zone -->
+        <div class="form-group" style="margin-top:1.5rem;">
+          <label style="font-size:1rem; color:#48c9b0; margin-bottom:.8rem; display:block;">✍️ Upload Your Handwriting Photo</label>
+          <div class="upload-zone" id="hw-upload-zone" onclick="document.getElementById('hw-photo').click()">
+            <div style="font-size:3rem; margin-bottom:.5rem;">📝</div>
+            <p style="color:#48c9b0; font-size:1rem; margin-bottom:.3rem;">Click or drag & drop your handwriting photo</p>
+            <p style="color:var(--text-muted); font-size:.82rem;">JPG or PNG · At least 5-6 lines of natural handwriting</p>
+            <input type="file" id="hw-photo" accept="image/*" required style="display:none;" />
+          </div>
+
+          <!-- Preview -->
+          <div id="hw-preview-container" style="display:none; margin-top:1rem; text-align:center;">
+            <img id="hw-preview-img" style="max-height:200px; border-radius:12px; border:1px solid rgba(72,201,176,.3); background:#fff; padding:10px;" />
+            <p style="color:#48c9b0; font-size:.85rem; margin-top:.5rem;">✅ Handwriting uploaded</p>
+          </div>
+
+          <!-- Tips -->
+          <div style="margin-top:1rem; padding:.9rem; background:rgba(255,255,255,.03); border-radius:10px; font-size:.82rem; color:var(--text-muted); line-height:1.7;">
+            <strong style="color:#48c9b0;">📷 For best results:</strong><br>
+            • Write 5–8 lines of any text naturally (your name, a sentence, anything)<br>
+            • Use plain white paper with a blue or black pen<br>
+            • Good lighting, no blur — just your everyday natural handwriting
+          </div>
+        </div>
+
+        <button type="submit" id="hw-btn" class="btn-primary analyze-btn">
+          <span id="hw-btn-text">✍️ Analyse My Handwriting (Free)</span>
+        </button>
+      </form>
+
+      <!-- Results -->
+      <div id="hw-result" style="display:none;" class="result-section">
+
+        <div style="text-align:center; margin-bottom:2rem; padding:1.5rem; background:rgba(72,201,176,.06); border:1px solid rgba(72,201,176,.2); border-radius:16px;">
+          <div style="font-size:2.5rem; margin-bottom:.5rem;">🔍</div>
+          <h3 id="hw-result-title" style="color:#48c9b0; font-family:'Cinzel',serif; font-size:1.4rem; margin-bottom:.4rem;">Handwriting Analysis Complete</h3>
+          <p style="color:var(--text-muted); font-size:.88rem;">Analysed by Gemini Vision AI · Path Guider Graphology Engine</p>
+        </div>
+
+        <div class="result-card">
+          <div class="rc-icon">🧠</div>
+          <h4>Core Personality</h4>
+          <p id="hw-personality"></p>
+        </div>
+
+        <div class="result-card">
+          <div class="rc-icon">💡</div>
+          <h4>Mindset & Intelligence</h4>
+          <p id="hw-mindset"></p>
+        </div>
+
+        <div class="result-card">
+          <div class="rc-icon">❤️</div>
+          <h4>Emotional Nature</h4>
+          <p id="hw-emotions"></p>
+        </div>
+
+        <div class="result-card">
+          <div class="rc-icon">⭐</div>
+          <h4>Your Strengths</h4>
+          <ul class="strength-list" id="hw-strengths"></ul>
+        </div>
+
+        <div class="result-card">
+          <div class="rc-icon">🔮</div>
+          <h4>Hidden Traits</h4>
+          <p id="hw-hidden"></p>
+        </div>
+
+        <div class="advice-box">
+          <div style="font-size:1.5rem; margin-bottom:.5rem;">🌿</div>
+          <h4 style="color:var(--purple-light); font-size:.85rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:.7rem;">Growth Advice</h4>
+          <p id="hw-advice" style="color:var(--text); font-size:.93rem; line-height:1.8;"></p>
+        </div>
+
+        <!-- Upsell to paid signature -->
+        <div class="upgrade-banner">
+          <div style="font-size:2rem; margin-bottom:.5rem;">🖋️</div>
+          <h3 style="color:var(--gold-light); margin-bottom:.5rem; font-family:'Cinzel',serif;">Want Even Deeper Insights?</h3>
+          <p style="color:var(--text-muted); font-size:.88rem; margin-bottom:1rem;">Try our <strong style="color:var(--gold);">Premium Signature Analysis</strong> — your signature reveals Destiny, Fortune & Love that handwriting alone cannot show.</p>
+          <a href="signature.html" class="btn-primary" style="display:inline-block; padding:.8rem 2rem; text-decoration:none; font-size:.9rem;">🔒 Get Signature Analysis — ₹79</a>
+        </div>
+
+        <div style="text-align:center; margin-top:1.5rem;">
+          <button onclick="resetHwForm()" class="btn-outline" style="padding:.7rem 2rem;">🔄 Analyse Another Sample</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="text-align:center;">
+      <p style="color:var(--text-muted); font-size:.82rem;">© 2026 Path Guider · Built with ✨ and ancient wisdom</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // Photo preview
+    const hwPhoto = document.getElementById('hw-photo');
+    const hwZone  = document.getElementById('hw-upload-zone');
+    hwPhoto.addEventListener('change', function() {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        document.getElementById('hw-preview-img').src = ev.target.result;
+        document.getElementById('hw-preview-container').style.display = 'block';
+        hwZone.style.borderColor = 'rgba(72,201,176,.7)';
+        hwZone.style.background  = 'rgba(72,201,176,.05)';
+      };
+      reader.readAsDataURL(file);
+    });
+    hwZone.addEventListener('dragover', e => { e.preventDefault(); hwZone.style.borderColor = 'rgba(72,201,176,.9)'; });
+    hwZone.addEventListener('dragleave', () => { hwZone.style.borderColor = 'rgba(72,201,176,.4)'; });
+    hwZone.addEventListener('drop', e => {
+      e.preventDefault();
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const dt = new DataTransfer(); dt.items.add(file); hwPhoto.files = dt.files;
+        hwPhoto.dispatchEvent(new Event('change'));
+      }
+    });
+
+    // Form submit
+    document.getElementById('hw-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('hw-name').value.trim();
+      const file = hwPhoto.files[0];
+      if (!name) { alert('Please enter your name.'); return; }
+      if (!file)  { alert('Please upload a handwriting photo.'); return; }
+
+      const btn = document.getElementById('hw-btn');
+      const btnText = document.getElementById('hw-btn-text');
+      btn.disabled = true;
+      btnText.innerHTML = '<span class="spinner"></span> AI Reading Your Handwriting...';
+
+      const base64 = await new Promise(resolve => {
+        const r = new FileReader();
+        r.onload = ev => resolve(ev.target.result);
+        r.readAsDataURL(file);
+      });
+
+      try {
+        const res = await fetch('/handwriting/analyze-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, imageBase64: base64 })
+        });
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error);
+
+        const a = data.analysis;
+        document.getElementById('hw-result-title').textContent = `Handwriting Reading for ${name}`;
+        document.getElementById('hw-personality').textContent = a.personality;
+        document.getElementById('hw-mindset').textContent     = a.mindset;
+        document.getElementById('hw-emotions').textContent    = a.emotions;
+        document.getElementById('hw-hidden').textContent      = a.hiddenTraits;
+        document.getElementById('hw-advice').textContent      = a.growthAdvice;
+
+        // Strengths list
+        const ul = document.getElementById('hw-strengths');
+        ul.innerHTML = '';
+        a.strengths.split('\n').filter(l => l.trim()).forEach(line => {
+          const li = document.createElement('li');
+          li.textContent = line.replace(/^[•\-]\s*/, '');
+          ul.appendChild(li);
+        });
+
+        document.getElementById('hw-form').style.display   = 'none';
+        document.getElementById('hw-result').style.display = 'block';
+        document.getElementById('hw-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      } catch (err) {
+        alert('Analysis failed: ' + err.message + '. Please try again.');
+        btn.disabled = false;
+        btnText.innerHTML = '✍️ Analyse My Handwriting (Free)';
+      }
+    });
+
+    function resetHwForm() {
+      document.getElementById('hw-form').style.display   = 'block';
+      document.getElementById('hw-result').style.display = 'none';
+      document.getElementById('hw-btn').disabled = false;
+      document.getElementById('hw-btn-text').innerHTML = '✍️ Analyse My Handwriting (Free)';
+      document.getElementById('hw-preview-container').style.display = 'none';
+      hwZone.style.borderColor = 'rgba(72,201,176,.4)';
+      hwZone.style.background  = 'rgba(72,201,176,.02)';
+      hwPhoto.value = '';
+    }
+  </script>
+</body>
+</html>
