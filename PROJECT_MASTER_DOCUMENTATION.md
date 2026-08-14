@@ -304,7 +304,12 @@ node server.js
   - Added horizontal inertia-scrolling tab system (`-webkit-overflow-scrolling: touch`) for Vedic calculation suites.
   - Optimized hero stats into 2-column mobile grid and stacked CTAs with full touch surface area.
   - Adjusted Gita chat message bubbles, Vedic result cards, and checkout modals for edge-to-edge mobile clarity.
+### 📅 Entry #012 — [2026-08-14] Integration of Official Divine Guidance Brand Logo
+- **Asset Update (`logo.png`)**:
+  - Successfully imported and deployed the official Divine Guidance vector logo featuring Lord Krishna's adorned hand with the sacred peacock feather (*Mayur Pankh*) reaching down into a circular celestial frame to guide a human hand.
+  - Updated all navigation bars, open graph metadata, favicon references, and PDF branding templates across `index.html`, `signature.html`, `handwriting.html`, and `blog/index.html`.
 - **Git Push Verification**: Committed and pushed to `origin/main`.
+
 
 
 
