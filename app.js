@@ -26,18 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // ── Smooth scroll for nav links ───────────────────────────
+  // ── Smooth scroll for nav links & Auto-close mobile drawer ──
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
       const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        if (navLinks && navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          if (burger) burger.classList.remove('active');
+        }
+      }
     });
   });
 
   // ── Mobile nav toggle ─────────────────────────────────────
-  const burger = document.getElementById('burger');
-  const navLinks = document.getElementById('nav-links');
   if (burger) {
     burger.addEventListener('click', () => {
       navLinks.classList.toggle('open');

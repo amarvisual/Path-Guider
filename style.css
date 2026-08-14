@@ -1172,5 +1172,264 @@ footer p { font-size: .8rem; color: var(--text-muted); }
   50% { opacity: 0.4; transform: scale(0.7); }
 }
 
+/* ══════════════════════════════════════════════════════════════════════
+   📱 ULTRA-PERFECT MOBILE RESPONSIVE SUITE (320px - 991px)
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* Tablet & Mobile Nav Collapse (< 992px) */
+@media (max-width: 991px) {
+  nav {
+    padding: 0.9rem 4%;
+  }
+  .nav-logo-text {
+    font-size: 1.1rem;
+  }
+  .live-status-pill {
+    padding: 2px 7px;
+    font-size: 0.68rem;
+  }
+  #burger {
+    display: flex;
+    z-index: 502;
+  }
+  #nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: rgba(5, 5, 9, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+    gap: 1.8rem;
+    border-bottom: 1px solid rgba(245, 176, 65, 0.2);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 501;
+  }
+  #nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  #nav-links a {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  .nav-cta {
+    display: none;
+  }
+  .accessibility-bar {
+    margin-left: auto;
+    margin-right: 12px;
+  }
+}
+
+/* Mobile Screens (< 768px) */
+@media (max-width: 768px) {
+  html {
+    font-size: calc(15px * var(--font-scale));
+  }
+  section {
+    padding: 3.5rem 1rem;
+  }
+  #hero {
+    padding: 5.5rem 1rem 3rem;
+    min-height: auto;
+  }
+  .hero-badge {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.9rem;
+    letter-spacing: 1px;
+  }
+  .hero-title {
+    font-size: clamp(2.1rem, 9vw, 3.2rem);
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .hero-btns {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .btn-primary, .btn-outline {
+    width: 100%;
+    text-align: center;
+    padding: 0.95rem 1.4rem;
+    font-size: 1rem;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+    width: 100%;
+  }
+  .stat-num {
+    font-size: 1.8rem;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Daily Cosmic Hub Mobile */
+  #daily-cosmic {
+    padding: 2rem 0;
+  }
+  .cosmic-banner-card {
+    padding: 1.5rem 1.1rem;
+    border-radius: 20px;
+  }
+  .cosmic-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .cosmic-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .cosmic-mini-card {
+    padding: 1.1rem;
+  }
+  .daily-mantra-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.4rem 1rem;
+    gap: 1.2rem;
+  }
+  .share-action-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  /* Vedic Suite Horizontal Scroll Tabs */
+  .vedic-nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    gap: 0.5rem;
+    justify-content: flex-start;
+  }
+  .vedic-nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .vedic-tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 0.82rem;
+    padding: 0.6rem 1rem;
+  }
+  .vedic-panel {
+    padding: 1.5rem 1rem;
+  }
+  .vedic-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .vedic-calc-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem;
+  }
+
+  /* Form Section Mobile Touch Targets (Min 48px, 16px Font) */
+  .form-wrapper {
+    padding: 1.8rem 1.2rem;
+    border-radius: 20px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .half-width {
+    width: 100%;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
+    min-height: 48px;
+    padding: 0.8rem 1rem;
+  }
+
+  /* Gita Chat Mobile */
+  .gita-chat-wrapper {
+    border-radius: 18px;
+  }
+  .gita-chat-box {
+    max-height: 400px;
+    padding: 1rem;
+  }
+  .gita-bubble {
+    max-width: 92%;
+    font-size: 0.9rem;
+    padding: 0.9rem 1.1rem;
+  }
+  .gita-input-area {
+    padding: 1rem;
+  }
+  #gita-send-btn {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  /* Modals Mobile */
+  .modal-content {
+    width: 94%;
+    max-width: 94%;
+    padding: 2rem 1.2rem;
+    border-radius: 20px;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+
+  /* Floating WhatsApp FAB Mobile */
+  .whatsapp-fab {
+    bottom: 16px;
+    right: 16px;
+    padding: 9px 16px;
+    font-size: 0.82rem;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+  }
+}
+
+/* Extra-Small Mobile (< 400px) */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+  .nav-logo-sub {
+    display: none;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+  .accessibility-bar {
+    display: none;
+  }
+}
+
+
 
 
