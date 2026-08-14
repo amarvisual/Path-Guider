@@ -287,7 +287,17 @@ node server.js
   - Built a 1-click **WhatsApp Community Share** button encouraging organic viral sharing.
   - Added a **Daily Cosmic Streak Tracker** (`🔥 Day X Cosmic Streak`) rewarding continuous visits.
   - Added **Returning User Personalization** greeting returning seekers by name.
+### 📅 Entry #010 — [2026-08-14] Amar Visuals Theme Overhaul (amarvisuals.co.uk Alignment)
+- **Design System & Aesthetics Transformation**:
+  - Restructured visual palette according to the signature **Amar Visuals** design language (`#050508` obsidian base, `#ff4500` flame neon, `#f5b041` 24k gold, and `#22c55e` emerald status accents).
+  - Adopted **Outfit** for bold, modern headings and numbers alongside **Inter** for ultra-clean reading typography.
+  - Implemented top **Scroll Progress Bar** (`#scroll-progress`) tracking page scroll with neon gradient reflection.
+  - Added pulsating **Live Online Status Badge** (`.live-status-pill`) in the navbar.
+  - Added floating **Aurora Drift Background Blobs** (`.aurora-blob`) providing ambient atmospheric depth.
+  - Implemented **Shimmer Sweep** light pass animation across primary buttons.
+  - Mounted **Floating WhatsApp Consultation FAB** with active pulse dot across all pages (`index.html`, `signature.html`, `handwriting.html`, `blog/index.html`).
 - **Git Push Verification**: Committed and pushed to `origin/main`.
+
 
 
 

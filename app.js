@@ -7,6 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Particle / Star field ──────────────────────────────────
   createStarField();
 
+  // ── Scroll Progress & Navbar Scrolled State (Amar Visuals Theme) ──
+  const progressBar = document.getElementById('scroll-progress');
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+    
+    if (progressBar) progressBar.style.width = scrolled + '%';
+    if (navbar) {
+      if (winScroll > 30) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+  }, { passive: true });
+
   // ── Smooth scroll for nav links ───────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {

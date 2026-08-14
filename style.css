@@ -1,21 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Cinzel:wght@500;600;700;800;900&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --font-scale: 1;
-  --navy: #020205;
-  --navy2: #080812;
-  --purple: #1e1e38;
-  --purple-light: #2c2c54;
+  --bg-dark: #07070a;
+  --bg-card: rgba(14, 14, 22, 0.7);
+  --navy: #050508;
+  --navy2: #090910;
+  --purple: #6c3fc5;
+  --purple-light: #8e54e9;
+  --orange: #ff4500;
+  --orange-light: #ff7a00;
   --gold: #f5b041;
   --gold-light: #fad7a1;
   --cyan: #48c9b0;
+  --emerald: #22c55e;
   --pink: #af7ac5;
-  --glass: rgba(255,255,255,0.038);
-  --glass-border: rgba(245,176,65,0.18);
+  --glass: rgba(255,255,255,0.035);
+  --glass-border: rgba(245,176,65,0.2);
+  --glass-hover: rgba(255,255,255,0.06);
   --text: #f0f0f8;
-  --text-muted: #a4a4c4;
+  --text-muted: #9e9ebc;
   --text-bright: #ffffff;
   --radius: 20px;
   --radius-sm: 12px;
@@ -24,6 +30,21 @@
 /* Accessibility Font Scaler Classes */
 body.font-lg { --font-scale: 1.12; }
 body.font-xl { --font-scale: 1.25; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #07070a; }
+::-webkit-scrollbar-thumb { background: #262635; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* Scroll Progress Bar (Amar Visuals Signature) */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3.5px;
+  background: linear-gradient(90deg, #ff4500, var(--gold), #48c9b0, var(--purple-light));
+  z-index: 99999; width: 0%;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 12px rgba(245,176,65,0.7);
+}
 
 /* Scroll Reveal */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
@@ -35,7 +56,7 @@ body.font-xl { --font-scale: 1.25; }
 html { scroll-behavior: smooth; font-size: calc(16px * var(--font-scale)); }
 
 body {
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   background: var(--navy);
   color: var(--text);
   min-height: 100vh;
@@ -44,6 +65,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  position: relative;
+}
+
+/* Background Aurora Drift Blobs */
+.aurora-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.12;
+  animation: aurora-drift 14s ease-in-out infinite alternate;
+}
+@keyframes aurora-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(40px, -30px) scale(1.1); }
+  100% { transform: translate(-30px, 30px) scale(0.95); }
 }
 
 /* ── CANVAS ── */
@@ -53,73 +91,131 @@ body {
   pointer-events: none; z-index: 0;
 }
 
-/* ── NAV ── */
+/* ── NAV (Amar Visuals Sleek Header) ── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 2rem;
-  background: rgba(6,6,15,0.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--glass-border);
+  padding: 1.1rem 5%;
+  background: rgba(7,7,12,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: all 0.3s ease;
 }
-.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.nav-logo-icon { font-size: 1.6rem; }
-.nav-logo-text { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold); letter-spacing: 1px; }
-.nav-logo-sub { font-size: 0.65rem; color: var(--text-muted); display: block; letter-spacing: 2px; }
-#nav-links { display: flex; gap: 2rem; list-style: none; }
-#nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color .3s; }
-#nav-links a:hover { color: var(--gold); }
-.nav-cta { background: linear-gradient(135deg, var(--purple), var(--purple-light)); border: none; color: #fff; padding: .55rem 1.3rem; border-radius: 50px; font-size: .85rem; cursor: pointer; transition: transform .2s, box-shadow .2s; }
-.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(108,63,197,.5); }
+nav.scrolled {
+  padding: 0.8rem 5%;
+  background: rgba(5,5,8,0.95);
+  border-bottom-color: rgba(245,176,65,0.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo-img { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(245,176,65,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+.nav-logo-text { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+.nav-logo-sub { font-size: 0.65rem; color: var(--gold); display: block; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+
+/* Live Status Dot Badge (Amar Visuals Signature) */
+.live-status-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.35);
+  border-radius: 100px; padding: 3px 10px;
+  font-size: 0.72rem; font-weight: 700;
+  color: #22c55e; letter-spacing: 0.3px;
+  margin-left: 6px;
+}
+.live-status-dot {
+  width: 6px; height: 6px; background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+#nav-links { display: flex; gap: 1.8rem; list-style: none; }
+#nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .25s; position: relative; }
+#nav-links a:hover { color: var(--gold-light); }
+#nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2px;
+  background: var(--gold); transition: width 0.25s;
+  box-shadow: 0 0 8px rgba(245,176,65,0.6);
+}
+#nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold), #d49520);
+  border: none; color: #07070a; padding: .6rem 1.4rem; border-radius: 50px;
+  font-size: .88rem; font-weight: 700; cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  position: relative; overflow: hidden;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(245,176,65,.5); }
+
+/* Shimmer Sweep Animation */
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%) skewX(-15deg); }
+}
+.btn-primary::after, .nav-cta::after, .vedic-calc-btn::after {
+  content: ''; position: absolute; top: 0; left: 0; width: 40%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  animation: shimmer-sweep 3.5s ease-in-out infinite; pointer-events: none;
+}
+.btn-primary { position: relative; overflow: hidden; }
+
 #burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
 #burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
 
-/* ── HERO ── */
+/* ── HERO (Amar Visuals Bold Typography) ── */
 #hero {
   position: relative; z-index: 1;
   min-height: 100vh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 6rem 1.5rem 4rem;
+  text-align: center; padding: 7rem 1.5rem 4rem;
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(212,175,55,.12); border: 1px solid rgba(212,175,55,.3);
-  color: var(--gold); font-size: .78rem; padding: .4rem 1rem; border-radius: 50px;
+  background: rgba(245,176,65,.12); border: 1px solid rgba(245,176,65,.35);
+  color: var(--gold-light); font-size: .8rem; font-weight: 700; padding: .4rem 1.2rem; border-radius: 50px;
   letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem;
   animation: fadeDown .8s ease;
 }
 .hero-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(2.8rem, 7vw, 5.5rem);
-  font-weight: 900; line-height: 1.1;
-  background: linear-gradient(135deg, #fff 30%, var(--gold) 60%, var(--purple-light) 100%);
+  font-weight: 900; line-height: 1.08;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, #ffffff 35%, var(--gold-light) 65%, var(--gold) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem; animation: fadeDown .9s ease .1s both;
+  margin-bottom: 1.2rem; animation: fadeDown .9s ease .1s both;
 }
 .hero-sub {
-  font-size: clamp(.95rem, 2vw, 1.15rem); color: var(--text-muted);
-  max-width: 560px; line-height: 1.8;
+  font-size: clamp(1rem, 2vw, 1.2rem); color: var(--text-muted);
+  max-width: 620px; line-height: 1.85;
   animation: fadeDown 1s ease .2s both; margin-bottom: 2.5rem;
 }
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeDown 1s ease .3s both; }
 .btn-primary {
-  background: linear-gradient(135deg, var(--purple), var(--purple-light));
-  border: none; color: #fff; padding: .9rem 2.2rem; border-radius: 50px;
-  font-size: 1rem; font-weight: 600; cursor: pointer;
-  box-shadow: 0 8px 32px rgba(108,63,197,.45);
+  background: linear-gradient(135deg, var(--gold), #c98818);
+  border: none; color: #06060c; padding: 1rem 2.4rem; border-radius: 50px;
+  font-size: 1.05rem; font-weight: 800; cursor: pointer;
+  box-shadow: 0 8px 30px rgba(245,176,65,.4);
   transition: transform .25s, box-shadow .25s;
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(108,63,197,.6); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 42px rgba(245,176,65,.6); }
 .btn-outline {
-  background: transparent; border: 1px solid var(--glass-border);
-  color: var(--text); padding: .9rem 2rem; border-radius: 50px;
-  font-size: 1rem; cursor: pointer; transition: border-color .25s, color .25s;
+  background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+  color: var(--text); padding: 1rem 2.2rem; border-radius: 50px;
+  font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all .25s;
 }
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); background: rgba(245,176,65,0.06); }
 .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center; animation: fadeDown 1s ease .4s both; }
 .stat { text-align: center; }
-.stat-num { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold); font-weight: 700; }
-.stat-label { font-size: .75rem; color: var(--text-muted); letter-spacing: 1px; }
+.stat-num { font-family: 'Outfit', sans-serif; font-size: 2.3rem; color: var(--gold); font-weight: 800; letter-spacing: -0.5px; }
+.stat-label { font-size: .8rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
 
 /* ── SECTIONS ── */
 section { position: relative; z-index: 1; padding: 5rem 1.5rem; }
@@ -1036,5 +1132,45 @@ footer p { font-size: .8rem; color: var(--text-muted); }
   background: var(--gold);
   color: #06060f;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   💬 FLOATING WHATSAPP CONSULTATION FAB (AMAR VISUALS SIGNATURE)
+   ══════════════════════════════════════════════════════════════════════ */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  box-shadow: 0 8px 25px rgba(37,211,102,0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.whatsapp-fab:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 14px 35px rgba(37,211,102,0.6);
+  background: #20ba59;
+}
+.whatsapp-fab-dot {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  animation: pulse-fab 1.8s infinite;
+}
+@keyframes pulse-fab {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
 
 
