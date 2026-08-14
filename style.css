@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  --font-scale: 1;
   --navy: #020205;
   --navy2: #080812;
   --purple: #1e1e38;
@@ -11,14 +12,18 @@
   --gold-light: #fad7a1;
   --cyan: #48c9b0;
   --pink: #af7ac5;
-  --glass: rgba(255,255,255,0.03);
-  --glass-border: rgba(245,176,65,0.15);
-  --text: #f8fafc;
-  --text-muted: #8888aa;
+  --glass: rgba(255,255,255,0.038);
+  --glass-border: rgba(245,176,65,0.18);
+  --text: #f0f0f8;
+  --text-muted: #a4a4c4;
+  --text-bright: #ffffff;
   --radius: 20px;
-  --radius-sm: 10px;
+  --radius-sm: 12px;
 }
 
+/* Accessibility Font Scaler Classes */
+body.font-lg { --font-scale: 1.12; }
+body.font-xl { --font-scale: 1.25; }
 
 /* Scroll Reveal */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
@@ -27,14 +32,15 @@
 .reveal-blur.active{opacity:1;filter:blur(0);transform:scale(1)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.34s}
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: calc(16px * var(--font-scale)); }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
   background: var(--navy);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -870,4 +876,165 @@ footer p { font-size: .8rem; color: var(--text-muted); }
   font-size: 0.92rem;
   line-height: 1.75;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   🌟 DAILY COSMIC ALIGNMENT & HABIT HUB
+   ══════════════════════════════════════════════════════════════════════ */
+#daily-cosmic {
+  padding: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cosmic-banner-card {
+  background: radial-gradient(circle at top right, rgba(108,63,197,0.22), transparent 70%),
+              radial-gradient(circle at bottom left, rgba(245,176,65,0.12), transparent 60%),
+              var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  backdrop-filter: blur(20px);
+}
+
+.cosmic-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding-bottom: 1.5rem;
+}
+
+.cosmic-streak-badge {
+  background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(245,176,65,0.2));
+  border: 1px solid rgba(245,176,65,0.4);
+  color: #fff;
+  padding: 0.45rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(245,176,65,0.2);
+}
+
+.cosmic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cosmic-mini-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.4rem;
+  transition: all 0.3s;
+}
+
+.cosmic-mini-card:hover {
+  border-color: rgba(245,176,65,0.4);
+  transform: translateY(-3px);
+}
+
+.cosmic-mini-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cosmic-mini-val {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.daily-mantra-box {
+  background: linear-gradient(135deg, rgba(108,63,197,0.18), rgba(245,176,65,0.08));
+  border: 1px solid rgba(245,176,65,0.3);
+  border-radius: 18px;
+  padding: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.mantra-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  color: var(--gold-light);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.mantra-sub {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.share-action-btn {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.share-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   🎚️ ACCESSIBILITY & READING COMFORT CONTROLS (FOR ALL AGES)
+   ══════════════════════════════════════════════════════════════════════ */
+.accessibility-bar {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  padding: 3px 6px;
+  gap: 4px;
+}
+
+.a11y-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.a11y-btn.active, .a11y-btn:hover {
+  background: var(--gold);
+  color: #06060f;
+}
+
 

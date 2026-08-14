@@ -125,6 +125,14 @@
       <li><a href="signature.html" style="color:var(--gold);">✍️ Signature AI</a></li>
       <li><a href="handwriting.html" style="color:#48c9b0;">📝 Handwriting</a></li>
     </ul>
+
+    <!-- Reader Accessibility Sizer (All Ages Comfort) -->
+    <div class="accessibility-bar" title="Adjust Text Size for Reading Comfort">
+      <button class="a11y-btn active" id="a11y-normal" onclick="setA11yFontSize('normal')">A</button>
+      <button class="a11y-btn" id="a11y-lg" onclick="setA11yFontSize('lg')">A+</button>
+      <button class="a11y-btn" id="a11y-xl" onclick="setA11yFontSize('xl')">A++</button>
+    </div>
+
     <button class="nav-cta" onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})">✨ Get My Reading</button>
     <button id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -135,10 +143,10 @@
   <section id="hero">
     <div class="hero-badge">🌟 Numerology &amp; Life Path Analysis</div>
     <h1 class="hero-title">Discover Your<br/>True Path</h1>
-    <p class="hero-sub">Unlock the hidden messages in your Name, Date of Birth, and Mobile Number — and receive a complete map of your personality, career, love life, and destiny.</p>
+    <p class="hero-sub" id="hero-sub-text">Unlock the hidden messages in your Name, Date of Birth, and Mobile Number — and receive a complete map of your personality, career, love life, and destiny.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})">✨ Reveal My Path</button>
-      <button class="btn-outline" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">How It Works</button>
+      <button class="btn-outline" onclick="document.getElementById('daily-cosmic').scrollIntoView({behavior:'smooth'})">🌟 Daily Cosmic Alignment</button>
     </div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">50,000+</div><div class="stat-label">Readings Done</div></div>
@@ -148,6 +156,68 @@
     </div>
   </section>
 
+  <!-- 🌟 DAILY COSMIC ALIGNMENT & HABIT HUB (Daily Return Reason) -->
+  <section id="daily-cosmic">
+    <div class="container">
+      <div class="cosmic-banner-card reveal">
+        
+        <div class="cosmic-header-row">
+          <div>
+            <span class="category-badge" style="display:inline-block; background:rgba(245,176,65,0.15); color:var(--gold); font-weight:700; font-size:0.8rem; padding:0.35rem 1rem; border-radius:50px; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:0.5rem;">
+              ⚡ Live Daily Alignment · <span id="cosmic-live-date">August 14, 2026</span>
+            </span>
+            <h2 style="font-family:'Cinzel',serif; font-size:clamp(1.5rem, 3.5vw, 2.2rem); color:#fff;">
+              Today's Cosmic Vibration &amp; Energy Alignment
+            </h2>
+          </div>
+          
+          <div class="cosmic-streak-badge" id="cosmic-streak-box">
+            🔥 <span id="streak-count-text">Day 1 Cosmic Streak</span>
+          </div>
+        </div>
+
+        <!-- Cosmic Metric Cards -->
+        <div class="cosmic-grid">
+          <div class="cosmic-mini-card">
+            <div class="cosmic-mini-label">🪐 Day Ruler Planet</div>
+            <div class="cosmic-mini-val" id="cosmic-ruler-val" style="color:var(--gold-light);">Surya (Sun)</div>
+          </div>
+          <div class="cosmic-mini-card">
+            <div class="cosmic-mini-label">🍀 Auspicious Color</div>
+            <div class="cosmic-mini-val" id="cosmic-color-val" style="color:#fad7a1;">Golden Yellow</div>
+          </div>
+          <div class="cosmic-mini-card">
+            <div class="cosmic-mini-label">🔢 Lucky Number Frequency</div>
+            <div class="cosmic-mini-val" id="cosmic-num-val" style="color:#48c9b0;">Number 1 &amp; 9</div>
+          </div>
+          <div class="cosmic-mini-card">
+            <div class="cosmic-mini-label">⏰ Abhijit Muhurat (Golden Hour)</div>
+            <div class="cosmic-mini-val" id="cosmic-muhurat-val" style="color:#ff7675;">11:45 AM – 12:35 PM</div>
+          </div>
+        </div>
+
+        <!-- Daily Power Mantra & WhatsApp Share Card -->
+        <div class="daily-mantra-box">
+          <div>
+            <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:2px; color:var(--gold); font-weight:700; margin-bottom:0.3rem;">
+              📿 Sacred Daily Affirmation &amp; Mantra
+            </div>
+            <div class="mantra-text" id="cosmic-mantra-text">
+              "ॐ सूर्याय नमः" · Om Suryaya Namaha
+            </div>
+            <p class="mantra-sub" id="cosmic-mantra-sub">
+              "I channel unshakeable clarity, vitality, and sovereign purpose into everything I create today."
+            </p>
+          </div>
+          
+          <a href="https://api.whatsapp.com/send?text=🌟%20Today%27s%20Cosmic%20Guidance%20from%20Path%20Guider%3A%20Check%20your%20daily%20auspicious%20color%20and%20lucky%20vibration%20free%20at%20https%3A%2F%2Fpathguider.in%2F" target="_blank" rel="noopener" class="share-action-btn" id="cosmic-share-btn">
+            <span>📲</span> Share Today's Blessing
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- HOW IT WORKS -->
   <section id="how-it-works">

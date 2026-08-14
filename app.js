@@ -50,11 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = runFullAnalysis(name, dob, mobile);
       result.gender = gender;
       result.cob = cob;
-      // email and photo will be added later if they purchase
       result.email = "Not Provided";
       result.photoBase64 = "";
       
       window.currentReadingResult = result;
+
+      // Save for returning visit personalization
+      localStorage.setItem('pathguider_user_name', name);
+      localStorage.setItem('pathguider_user_dob', dob);
+      localStorage.setItem('pathguider_user_mobile', mobile);
 
       // Log the lead silently to the backend database
       try {
@@ -1700,5 +1704,162 @@ async function sendGitaMessage() {
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 }
+
+// ══════════════════════════════════════════════════════════════════════
+// 🌟 DAILY COSMIC ALIGNMENT & HABIT SYSTEM (DAILY RETENTION)
+// ══════════════════════════════════════════════════════════════════════
+const VEDIC_DAYS = [
+  {
+    day: 'Sunday', planet: 'Surya (Sun) ☀️', color: 'Gold & Ruby Red', numbers: '1 & 9',
+    muhurat: '11:45 AM – 12:35 PM (Abhijit)',
+    mantra: '"ॐ सूर्याय नमः" · Om Suryaya Namaha',
+    meaning: '"I channel unshakeable vitality, sovereign clarity, and leadership in everything I create today."'
+  },
+  {
+    day: 'Monday', planet: 'Chandra (Moon) 🌙', color: 'Silvery White & Cream', numbers: '2 & 7',
+    muhurat: '11:50 AM – 12:40 PM (Amrit Kaal)',
+    mantra: '"ॐ सोमाय नमः" · Om Somaya Namaha',
+    meaning: '"My emotional peace is unbreakable. I trust my intuition and nurture deep harmony."'
+  },
+  {
+    day: 'Tuesday', planet: 'Mangal (Mars) ⚔️', color: 'Coral Red & Orange', numbers: '9 & 3',
+    muhurat: '11:40 AM – 12:30 PM (Abhijit)',
+    mantra: '"ॐ भौमाय नमः" · Om Bhaumaya Namaha',
+    meaning: '"I possess the courage to overcome all obstacles. Action eliminates doubt."'
+  },
+  {
+    day: 'Wednesday', planet: 'Budha (Mercury) 🌿', color: 'Emerald Green & Mint', numbers: '5 & 1',
+    muhurat: '11:45 AM – 12:35 PM (Vijay Muhurat)',
+    mantra: '"ॐ बुधाय नमः" · Om Budhaya Namaha',
+    meaning: '"My speech attracts wealth and understanding. I adapt fluidly and master communication."'
+  },
+  {
+    day: 'Thursday', planet: 'Guru (Jupiter) 👑', color: 'Saffron & Golden Yellow', numbers: '3 & 7',
+    muhurat: '11:48 AM – 12:38 PM (Guru Pushya Window)',
+    mantra: '"ॐ बृहस्पतये नमः" · Om Brihaspataye Namaha',
+    meaning: '"Divine wisdom expands my mind. Wealth, dharma, and benevolent fortune flow to me."'
+  },
+  {
+    day: 'Friday', planet: 'Shukra (Venus) 💎', color: 'Pastel Pink & Pearl', numbers: '6 & 2',
+    muhurat: '11:52 AM – 12:42 PM (Shukra Hora)',
+    mantra: '"ॐ शुक्राय नमः" · Om Shukraya Namaha',
+    meaning: '"I radiate beauty, luxury, and affectionate warmth. Love surrounds my life effortlessly."'
+  },
+  {
+    day: 'Saturday', planet: 'Shani (Saturn) 🪐', color: 'Midnight Blue & Black', numbers: '8 & 4',
+    muhurat: '11:45 AM – 12:35 PM (Shani Kaal Window)',
+    mantra: '"ॐ शनैश्चराय नमः" · Om Shanaishcharaya Namaha',
+    meaning: '"I honor patience, sacred discipline, and deep karmic roots. My legacy is permanent."'
+  }
+];
+
+function initDailyCosmicHub() {
+  const now = new Date();
+  const dayIdx = now.getDay();
+  const config = VEDIC_DAYS[dayIdx];
+
+  const dateStr = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  const dateEl = document.getElementById('cosmic-live-date');
+  if (dateEl) dateEl.textContent = dateStr;
+
+  const rulerEl   = document.getElementById('cosmic-ruler-val');
+  const colorEl   = document.getElementById('cosmic-color-val');
+  const numEl     = document.getElementById('cosmic-num-val');
+  const muhuratEl = document.getElementById('cosmic-muhurat-val');
+  const mantraEl  = document.getElementById('cosmic-mantra-text');
+  const subEl     = document.getElementById('cosmic-mantra-sub');
+  const shareBtn  = document.getElementById('cosmic-share-btn');
+
+  if (rulerEl)   rulerEl.textContent   = config.planet;
+  if (colorEl)   colorEl.textContent   = config.color;
+  if (numEl)     numEl.textContent     = config.numbers;
+  if (muhuratEl) muhuratEl.textContent = config.muhurat;
+  if (mantraEl)  mantraEl.textContent  = config.mantra;
+  if (subEl)     subEl.textContent     = config.meaning;
+
+  if (shareBtn) {
+    const shareText = encodeURIComponent(`🌟 Today's Cosmic Alignment (${config.day}):\n🪐 Planet: ${config.planet}\n🎨 Auspicious Color: ${config.color}\n🔢 Lucky Frequency: ${config.numbers}\n📿 Mantra: ${config.mantra}\n\n✨ Check your free daily alignment on Path Guider: https://pathguider.in/`);
+    shareBtn.href = `https://api.whatsapp.com/send?text=${shareText}`;
+  }
+
+  initDailyStreakTracker();
+  checkReturningUserProfile();
+  applyStoredA11yFontSize();
+}
+
+function initDailyStreakTracker() {
+  const todayKey = new Date().toDateString();
+  const lastVisit = localStorage.getItem('pathguider_last_visit');
+  let streak = parseInt(localStorage.getItem('pathguider_streak') || '0', 10);
+
+  if (!lastVisit) {
+    streak = 1;
+  } else if (lastVisit !== todayKey) {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    if (lastVisit === yesterday.toDateString()) {
+      streak += 1;
+    } else {
+      streak = 1; // reset streak if missed
+    }
+  }
+
+  localStorage.setItem('pathguider_streak', streak.toString());
+  localStorage.setItem('pathguider_last_visit', todayKey);
+
+  const streakText = document.getElementById('streak-count-text');
+  if (streakText) {
+    streakText.textContent = `Day ${streak} Cosmic Streak 🔥`;
+  }
+}
+
+function checkReturningUserProfile() {
+  const savedName = localStorage.getItem('pathguider_user_name');
+  if (savedName) {
+    const heroSub = document.getElementById('hero-sub-text');
+    if (heroSub) {
+      heroSub.innerHTML = `✨ <strong>Welcome back, ${savedName}!</strong> Your daily cosmic frequencies are aligned. Explore your live guidance below or recalculate your 2026 blueprint anytime.`;
+    }
+    const nameInput = document.getElementById('fullName');
+    if (nameInput && !nameInput.value) {
+      nameInput.value = savedName;
+    }
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// 🎚️ ACCESSIBILITY READING COMFORT (TEXT SIZE FOR ALL AGES)
+// ══════════════════════════════════════════════════════════════════════
+function setA11yFontSize(size) {
+  document.body.classList.remove('font-lg', 'font-xl');
+  document.querySelectorAll('.a11y-btn').forEach(btn => btn.classList.remove('active'));
+
+  if (size === 'lg') {
+    document.body.classList.add('font-lg');
+    document.getElementById('a11y-lg')?.classList.add('active');
+  } else if (size === 'xl') {
+    document.body.classList.add('font-xl');
+    document.getElementById('a11y-xl')?.classList.add('active');
+  } else {
+    document.getElementById('a11y-normal')?.classList.add('active');
+  }
+
+  localStorage.setItem('pathguider_a11y_font', size);
+}
+
+function applyStoredA11yFontSize() {
+  const stored = localStorage.getItem('pathguider_a11y_font');
+  if (stored) {
+    setA11yFontSize(stored);
+  }
+}
+
+// Auto-run daily hub on DOM load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initDailyCosmicHub);
+} else {
+  initDailyCosmicHub();
+}
+
 
 
